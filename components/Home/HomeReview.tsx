@@ -123,7 +123,7 @@ const TESTIMONIALS_DATA = [
   },
 ];
 
-const getSizeClasses = (size) => {
+const getSizeClasses = (size:any) => {
   switch (size) {
     case "lg":
       return "w-24 h-24 md:w-32 md:h-32 shadow-2xl border-2";
@@ -228,7 +228,7 @@ export default function Testimonials() {
                   setActiveIndex(index);
                   setIsAutoPlaying(false);
                 }}
-                className={`flex-shrink-0 transition-all duration-300 rounded-full p-0.5 ${
+                className={`shrink-0 transition-all duration-300 rounded-full p-0.5 ${
                   isActive
                     ? "ring-2 ring-rose-500 ring-offset-2 ring-offset-slate-950 scale-105"
                     : "opacity-60 hover:opacity-100"
