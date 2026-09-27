@@ -15,25 +15,25 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 const statsData = [
   {
     icon: GraduationCap,
-    iconBg: "bg-rose-500/20 text-rose-400",
+    iconBg: "bg-rose-500/10 text-rose-600 border border-rose-200/60",
     value: "5000+",
     label: "Students Supported Globally",
   },
   {
     icon: Briefcase,
-    iconBg: "bg-amber-500/20 text-amber-400",
+    iconBg: "bg-amber-500/10 text-amber-600 border border-amber-200/60",
     value: "1500+",
     label: "Career & Job Placements",
   },
   {
     icon: Globe2,
-    iconBg: "bg-emerald-500/20 text-emerald-400",
+    iconBg: "bg-emerald-500/10 text-emerald-600 border border-emerald-200/60",
     value: "20+",
     label: "Countries & Regions Served",
   },
   {
     icon: Sparkles,
-    iconBg: "bg-blue-500/20 text-blue-400",
+    iconBg: "bg-blue-500/10 text-blue-600 border border-blue-200/60",
     value: "98%",
     label: "Visa & Program Success Rate",
   },
@@ -71,16 +71,16 @@ export default function HomeSocialWork() {
   const rawCharsVisible = useTransform(
     smoothProgress,
     [0.2, 0.85],
-    [0, textCharsCount]
+    [0, textCharsCount],
   );
 
   return (
     <section
       ref={containerRef}
-      className="flex flex-col lg:flex-row bg-slate-900 overflow-hidden"
+      className="flex flex-col lg:flex-row bg-[#fafafa] overflow-hidden"
     >
       {/* Left Stats Panel - Stacked Cards with Impact Shake */}
-      <div className="bg-slate-900 lg:w-1/4 p-8 sm:p-10 flex flex-col justify-center gap-4 relative overflow-hidden z-10">
+      <div className="bg-[#fafafa] lg:w-1/4 p-8 sm:p-10 flex flex-col justify-center gap-4 relative overflow-hidden">
         {statsData.map((stat, index) => {
           const step = steps[index];
 
@@ -99,7 +99,7 @@ export default function HomeSocialWork() {
                 opacity,
                 scale,
               }}
-              className="bg-white/10 p-4 rounded-2xl flex items-center gap-4 backdrop-blur-md border border-white/10 hover:bg-white/15 transition-colors shadow-lg"
+              className="bg-white p-4 rounded-2xl flex items-center gap-4 border border-slate-200/80 hover:border-slate-300 hover:shadow-md transition-all shadow-xs"
             >
               <div
                 className={`w-12 h-12 ${stat.iconBg} rounded-xl flex items-center justify-center shrink-0`}
@@ -107,10 +107,10 @@ export default function HomeSocialWork() {
                 <IconComponent size={24} />
               </div>
               <div>
-                <h4 className="text-white font-black text-2xl tracking-tight">
+                <h4 className="text-slate-900 font-black text-2xl tracking-tight">
                   {stat.value}
                 </h4>
-                <p className="text-slate-300 text-xs font-medium">
+                <p className="text-slate-600 text-xs font-medium">
                   {stat.label}
                 </p>
               </div>
@@ -158,10 +158,10 @@ export default function HomeSocialWork() {
           <h3 className="text-xl sm:text-xl font-semibold leading-relaxed mb-8 text-white min-h-[160px]">
             {quoteText.split("").map((char, index) => {
               const charOpacity = useTransform(rawCharsVisible, (latest) =>
-                latest >= index ? 1 : 0.15
+                latest >= index ? 1 : 0.15,
               );
               const charY = useTransform(rawCharsVisible, (latest) =>
-                latest >= index ? 0 : 2
+                latest >= index ? 0 : 2,
               );
 
               return (

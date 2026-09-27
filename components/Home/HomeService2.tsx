@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { ArrowRight, Play } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -90,23 +90,30 @@ const servicesData: ServiceItem[] = [
 ];
 
 export default function HomeService2() {
-  const [activeService, setActiveService] = useState<ServiceItem>(servicesData[4]);
+  const [activeServiceIndex, setActiveServiceIndex] = useState<number>(4);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+
+  const activeService = servicesData[activeServiceIndex];
+
+  // Automatic interval for rotating active service
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setActiveServiceIndex((prevIndex) => (prevIndex + 1) % servicesData.length);
+    }, 5000); // Rotates every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
   return (
     <section className="bg-[#fafafa] pt-24">
       {/* Outer Main Box Container */}
-      <div className="relative w-full max-w-7xl text-slate-900 mx-auto">
-        
-        {/* Light Background Shell with soft overlay */}
-        <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
-          <Image
-            src="/images/bg-office-people.jpg"
-            alt="Background Office"
-            fill
-            className="object-cover opacity-[0.04]"
-            priority
-          />
-        </div>
+      <div 
+        className="relative w-full max-w-7xl text-slate-900 mx-auto"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
 
         {/* Section Header */}
         <motion.div
@@ -116,7 +123,10 @@ export default function HomeService2() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative z-10 text-center max-w-3xl mx-auto mb-12 sm:mb-28"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
+          <span className="text-xs sm:text-sm font-bold text-rose-500 uppercase tracking-widest block mb-2">
+            • Our Services •
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold leading-tight text-slate-900">
             One Platform, <span className="text-[#FF0033]">All Service</span>
           </h2>
           <p className="mt-3 text-slate-600 text-sm sm:text-base font-normal">
@@ -125,7 +135,7 @@ export default function HomeService2() {
         </motion.div>
 
         {/* Content Layout Grid */}
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           
           {/* Left Side: Navigation Links */}
           <motion.div
@@ -133,10 +143,10 @@ export default function HomeService2() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-4 flex flex-col space-y-4"
+            className="flex flex-col space-y-4"
           >
             {servicesData.map((service, index) => {
-              const isActive = activeService.id === service.id;
+              const isActive = activeServiceIndex === index;
               return (
                 <motion.button
                   key={service.id}
@@ -144,7 +154,7 @@ export default function HomeService2() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ amount: 0.2 }}
                   transition={{ duration: 0.4, delay: 0.05 * index }}
-                  onClick={() => setActiveService(service)}
+                  onClick={() => setActiveServiceIndex(index)}
                   className={`group flex items-center text-left transition-all duration-300 cursor-pointer ${
                     isActive
                       ? "text-[#FF0033] font-bold"
@@ -163,7 +173,7 @@ export default function HomeService2() {
                     </motion.div>
                   )}
 
-                  <span className={`text-base sm:text-lg tracking-wide ${!isActive && "ml-0"}`}>
+                  <span className={`text-base sm:text-lg tracking-wide ${!isActive ? "ml-0" : ""}`}>
                     {service.title}
                   </span>
                 </motion.button>
@@ -177,7 +187,7 @@ export default function HomeService2() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ amount: 0.2 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-4 flex justify-center lg:-my-20 my-6 z-20"
+            className="flex justify-center lg:-my-20 my-6 z-20"
           >
             <div className="relative w-full max-w-[380px] h-[480px] sm:h-[580px] rounded-[30px] border-2 border-white overflow-hidden shadow-2xl bg-slate-200">
               <AnimatePresence mode="wait">
@@ -228,7 +238,7 @@ export default function HomeService2() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="lg:col-span-4 flex flex-col justify-center space-y-6 lg:pl-4 min-h-[280px]"
+            className="flex flex-col justify-center space-y-6 lg:pl-4 min-h-[280px]"
           >
             <AnimatePresence mode="wait">
               <motion.div

@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion"
 import { Phone, Mail, MapPin, ArrowRight, Briefcase } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -36,12 +38,17 @@ export default function Footer() {
           className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-slate-800"
         >
           {/* Logo Area */}
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-rose-500 rounded-2xl flex items-center justify-center text-white shadow-md shadow-rose-500/20">
-              <Briefcase size={20} />
+          <Link href="/" className="group relative">
+            <div className="relative flex items-center justify-center size-11 rounded-full bg-slate-100 border border-slate-700 group-hover:border-slate-500 transition-colors duration-300 overflow-hidden shadow-inner">
+              <Image
+                src="/img/logo.png"
+                alt="RIJIK Logo"
+                height={28}
+                width={28}
+                className="size-7 object-contain group-hover:scale-110 transition-transform duration-300"
+              />
             </div>
-            <span className="font-bold text-2xl tracking-tight text-white">Rijik</span>
-          </div>
+          </Link>
 
           {/* Call Us */}
           <div className="flex items-center gap-4">

@@ -18,12 +18,12 @@ export default function Home() {
       <HomeCompany/>
       <HomeAbout/>
       <ServicesSection/>
-      {/* <HomeServices/> */}
       <HomeAchievements/>
       <HomeSocialWork/>
       <HomeWhyChoose/>
       <HomeReview/>
       <HomeBlog/>
+      {/* <HomeServices/> */}
       <HomeFaq/>
     </div>
   );

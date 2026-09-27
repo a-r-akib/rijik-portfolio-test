@@ -27,7 +27,7 @@ export default function HomeCompany() {
 
   // Moves the track horizontally from left to right as you scroll down
   // Adjust pixel values (-400px to 200px) based on how fast/far you want it to travel
-  const scrollX = useTransform(scrollYProgress, [0, 1], [-500, 200]);
+  const scrollX = useTransform(scrollYProgress, [0, 1], [-300, 200]);
 
   return (
     <section className="bg-slate-900 pt-40 -mt-34">

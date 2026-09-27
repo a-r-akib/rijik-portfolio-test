@@ -14,7 +14,7 @@ const faqs = [
   {
     question: "How can customers safely and easily send remittance through RIIJIK International?",
     answer:
-      "This explains your remittance process, safety, and requirements",
+      "This explains your remittance process, safety, and requirements.",
   },
   {
     question: "Is Rijik available internationally?",
@@ -56,7 +56,7 @@ export default function HomeFaq() {
   };
 
   return (
-    <section className="bg-slate-900 text-slate-100 py-24 px-4 sm:px-6 lg:px-8 flex items-center justify-center overflow-hidden">
+    <section className="bg-[#fafafa] text-slate-800 py-24 flex items-center justify-center overflow-hidden border-y border-slate-200/80">
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
         {/* Left Column */}
@@ -70,9 +70,9 @@ export default function HomeFaq() {
           {/* Header */}
           <motion.div variants={fadeInUp}>
             <span className="text-xs sm:text-sm font-semibold text-rose-500 uppercase tracking-widest block mb-2">
-            • FAQ •
-          </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">
+              • FAQ •
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
               Frequently Asked <br /> Questions
             </h2>
           </motion.div>
@@ -80,12 +80,12 @@ export default function HomeFaq() {
           {/* Call to Action Card */}
           <motion.div 
             variants={fadeInUp}
-            className="bg-slate-900/80 backdrop-blur-md rounded-3xl p-8 border border-slate-800 shadow-xl shadow-black/40 flex flex-col items-center text-center max-w-md"
+            className="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-xl shadow-slate-200/50 flex flex-col items-center text-center max-w-md"
           >
-            {/* Avatar with Rose Glow */}
+            {/* Avatar with Soft Rose Glow */}
             <div className="relative mb-5">
-              <div className="absolute inset-0 bg-rose-500/30 rounded-full blur-xl scale-150"></div>
-              <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-slate-700 shadow-md">
+              <div className="absolute inset-0 bg-rose-500/15 rounded-full blur-xl scale-150"></div>
+              <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-slate-200 shadow-sm">
                 <Image
                   src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200"
                   alt="Consultant Avatar"
@@ -96,14 +96,14 @@ export default function HomeFaq() {
               </div>
             </div>
 
-            <h3 className="text-xl font-bold text-white mb-2">
+            <h3 className="text-xl font-bold text-slate-900 mb-2">
               Book a 15 min call
             </h3>
-            <p className="text-sm text-slate-400 mb-6 leading-relaxed">
+            <p className="text-sm text-slate-600 mb-6 leading-relaxed">
               If you have any questions, just book a 15-minute call with us before subscribing.
             </p>
 
-            <button className="w-full bg-rose-500 hover:bg-rose-600 text-white font-semibold py-3.5 px-6 rounded-full transition-all duration-200 shadow-lg shadow-rose-500/20 active:scale-[0.98]">
+            <button className="w-full bg-rose-500 hover:bg-rose-600 text-white font-semibold py-3.5 px-6 rounded-full transition-all duration-200 shadow-md shadow-rose-500/20 active:scale-[0.98]">
               Book a Free Call
             </button>
           </motion.div>
@@ -123,18 +123,18 @@ export default function HomeFaq() {
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className="bg-slate-900/60 rounded-2xl border border-slate-800/80 shadow-sm transition-all duration-200 overflow-hidden hover:border-slate-700"
+                className="bg-white rounded-2xl border border-slate-200/80 shadow-xs transition-all duration-200 overflow-hidden hover:border-slate-300"
               >
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-slate-800/40 transition-colors"
+                  className="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-slate-50/80 transition-colors"
                 >
-                  <span className="font-semibold text-slate-100 text-base sm:text-lg">
+                  <span className="font-semibold text-slate-900 text-base sm:text-lg">
                     {faq.question}
                   </span>
                   <span className="flex-shrink-0 text-slate-400">
                     {isOpen ? (
-                      <X className="w-5 h-5 text-rose-400 transition-transform duration-200" />
+                      <X className="w-5 h-5 text-rose-500 transition-transform duration-200" />
                     ) : (
                       <Plus className="w-5 h-5 text-slate-400 transition-transform duration-200" />
                     )}
@@ -148,7 +148,7 @@ export default function HomeFaq() {
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      className="px-6 pb-6 text-sm text-slate-400 leading-relaxed border-t border-slate-800/50 pt-3"
+                      className="px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3"
                     >
                       {faq.answer}
                     </motion.div>
@@ -158,7 +158,6 @@ export default function HomeFaq() {
             );
           })}
         </motion.div>
-
       </div>
     </section>
   );

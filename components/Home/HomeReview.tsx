@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Star, Quote } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const TESTIMONIALS_DATA = [
   {
@@ -13,9 +14,6 @@ const TESTIMONIALS_DATA = [
     quote:
       "Rijik made my transition to Japan seamless from airport pickup to opening my bank account. Their team truly cares, and that made all the difference. The remittance desk helped my family stay financially connected without hidden fees.",
     rating: 5,
-    top: "38%",
-    left: "45%",
-    size: "lg",
   },
   {
     id: "kenji",
@@ -26,9 +24,6 @@ const TESTIMONIALS_DATA = [
     quote:
       "Finding visa sponsorship and navigating rental agreements in Tokyo felt impossible before I found Rijik. They guided me step-by-step through every single bureaucratic hurdle with utmost professionalism.",
     rating: 5,
-    top: "25%",
-    left: "18%",
-    size: "md",
   },
   {
     id: "david",
@@ -39,9 +34,6 @@ const TESTIMONIALS_DATA = [
     quote:
       "The personalized consultation gave me the clarity I needed to pivot my architectural career into Japan’s thriving modern market. Exceptional service and heartwarming hospitality!",
     rating: 5,
-    top: "16%",
-    left: "81%",
-    size: "md",
   },
   {
     id: "marcus",
@@ -52,9 +44,6 @@ const TESTIMONIALS_DATA = [
     quote:
       "Moving across the world is intimidating, but Rijik was there for me at every step. From settling into my apartment to language orientation, they treated me like family.",
     rating: 5,
-    top: "50%",
-    left: "83%",
-    size: "md",
   },
   {
     id: "elena",
@@ -65,9 +54,6 @@ const TESTIMONIALS_DATA = [
     quote:
       "I could not have managed my research grant visa without their expert legal team. They turned what seemed like an overwhelming process into a breeze.",
     rating: 5,
-    top: "50%",
-    left: "66%",
-    size: "sm",
   },
   {
     id: "aisha",
@@ -78,9 +64,6 @@ const TESTIMONIALS_DATA = [
     quote:
       "Their continuous support long after my initial arrival in Japan has been invaluable. Whenever I run into paperwork or banking questions, Rijik is my go-to response team.",
     rating: 5,
-    top: "51%",
-    left: "27%",
-    size: "xs",
   },
   {
     id: "chloe",
@@ -91,9 +74,6 @@ const TESTIMONIALS_DATA = [
     quote:
       "Having someone meet me at Narita airport with a welcome pack and local SIM card was a game changer. I felt instantly safe and supported.",
     rating: 5,
-    top: "16%",
-    left: "60%",
-    size: "xs",
   },
   {
     id: "lucas",
@@ -104,9 +84,6 @@ const TESTIMONIALS_DATA = [
     quote:
       "Starting a culinary business in Japan requires intense compliance work. Rijik helped me acquire all necessary operational permits effortlessly.",
     rating: 5,
-    top: "16%",
-    left: "6%",
-    size: "sm",
   },
   {
     id: "cameron",
@@ -117,26 +94,53 @@ const TESTIMONIALS_DATA = [
     quote:
       "The peace of mind they offer is unmatched. Rijik is the gold standard for anyone relocating or extending their journey in Japan.",
     rating: 5,
-    top: "52%",
-    left: "11%",
-    size: "sm",
   },
 ];
 
-const getSizeClasses = (size:any) => {
-  switch (size) {
-    case "lg":
-      return "w-24 h-24 md:w-32 md:h-32 shadow-2xl border-2";
-    case "md":
-      return "w-16 h-16 md:w-20 md:h-20 shadow-xl border-2";
-    case "sm":
-      return "w-12 h-12 md:w-14 md:h-14 shadow-lg border-2";
-    case "xs":
-      return "w-8 h-8 md:w-10 md:h-10 shadow-md border-2";
-    default:
-      return "w-14 h-14 border-2";
+// Map orbital coordinates and variable small scale factors for inactive avatars
+const INACTIVE_SCALES = [0.65, 0.8, 0.55, 0.75, 0.6, 0.85, 0.5, 0.7];
+
+const getAvatarPosition = (
+  index: number,
+  activeIndex: number,
+  total: number
+) => {
+  // Selected avatar is positioned prominent center top with large scale
+  if (index === activeIndex) {
+    return { top: "18%", left: "50%", scale: 1.35, zIndex: 40 };
   }
+
+  const offset = (index - activeIndex + total) % total;
+
+  const positions = [
+    { top: "25%", left: "18%", zIndex: 20 },
+    { top: "16%", left: "81%", zIndex: 20 },
+    { top: "52%", left: "84%", zIndex: 15 },
+    { top: "52%", left: "68%", zIndex: 10 },
+    { top: "53%", left: "30%", zIndex: 10 },
+    { top: "18%", left: "62%", zIndex: 10 },
+    { top: "18%", left: "8%", zIndex: 15 },
+    { top: "54%", left: "12%", zIndex: 15 },
+  ];
+
+  const pos = positions[(offset - 1) % positions.length];
+  // Assign a varying small scale for each non-active avatar position
+  const dynamicSmallScale = INACTIVE_SCALES[index % INACTIVE_SCALES.length];
+
+  return { ...pos, scale: dynamicSmallScale };
 };
+
+const initialFlyInDirections = [
+  { x: -120, y: -80 },
+  { x: 120, y: -80 },
+  { x: 140, y: 60 },
+  { x: 80, y: 120 },
+  { x: -80, y: 120 },
+  { x: 0, y: -140 },
+  { x: -140, y: 0 },
+  { x: 140, y: 0 },
+  { x: 0, y: 140 },
+];
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -144,7 +148,6 @@ export default function Testimonials() {
 
   const activeTestimonial = TESTIMONIALS_DATA[activeIndex];
 
-  // Auto-rotate testimonials every 5 seconds if enabled
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
@@ -154,65 +157,106 @@ export default function Testimonials() {
   }, [isAutoPlaying]);
 
   return (
-    <div className="min-h-screen w-full bg-slate-900 font-sans text-slate-100 flex flex-col justify-between relative overflow-hidden py-24">
-
-      {/* Header Section */}
-      <header className="max-w-3xl mx-auto text-center pt-4 pb-8 z-10">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+    <section className="w-full bg-[#fafafa] font-sans text-slate-800 flex flex-col justify-between relative overflow-hidden py-24">
+      {/* Animated Header */}
+      <motion.header
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="max-w-3xl mx-auto text-center pt-4 pb-8 z-10 px-4"
+      >
+        <span className="text-xs sm:text-sm font-semibold text-rose-500 uppercase tracking-widest block mb-2">
+          • TESTIMONIALS •
+        </span>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
           What Our <span className="text-rose-500">Clients Say</span>
         </h1>
-        <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed font-normal">
+        <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
           Hear directly from students, professionals, and families who have
           successfully built their careers, education, and lives in Japan with
           our trusted guidance.
         </p>
-      </header>
+      </motion.header>
 
-      {/* Main Content & Avatars Canvas */}
-      <div className="relative w-full max-w-7xl mx-auto flex-1 flex flex-col justify-between my-2">
-        {/* Floating Desktop Avatar Positions */}
+      {/* Canvas */}
+      <div
+        className="relative w-full max-w-7xl mx-auto flex-1 flex flex-col justify-between my-2"
+        onMouseEnter={() => setIsAutoPlaying(false)}
+        onMouseLeave={() => setIsAutoPlaying(true)}
+      >
+        {/* Floating Desktop Avatars */}
         <div className="hidden md:block absolute inset-0 pointer-events-none">
           {TESTIMONIALS_DATA.map((item, index) => {
             const isActive = index === activeIndex;
-            const sizeClass = getSizeClasses(item.size);
+            const pos = getAvatarPosition(
+              index,
+              activeIndex,
+              TESTIMONIALS_DATA.length
+            );
+            const flyIn =
+              initialFlyInDirections[index % initialFlyInDirections.length];
 
             return (
-              <button
+              <motion.div
                 key={item.id}
-                onClick={() => {
-                  setActiveIndex(index);
-                  setIsAutoPlaying(false);
-                }}
-                title={`${item.name} - ${item.role}`}
+                initial={{ opacity: 0, x: flyIn.x, y: flyIn.y }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
                 style={{
-                  top: item.top,
-                  left: item.left,
+                  position: "absolute",
+                  top: pos.top,
+                  left: pos.left,
+                  zIndex: pos.zIndex,
                 }}
-                className={`absolute pointer-events-auto transition-all duration-500 ease-out transform -translate-x-1/2 -translate-y-1/2 rounded-full overflow-hidden focus:outline-none group ${
-                  isActive
-                    ? "ring-4 ring-slate-500/50 ring-offset-4 ring-offset-slate-950 scale-110 z-30 shadow-[0_0_25px_rgba(244,63,94,0.4)]"
-                    : "hover:scale-110 hover:z-20 opacity-70 hover:opacity-100 z-10"
-                }`}
+                className="pointer-events-auto"
               >
-                <div
-                  className={`relative ${sizeClass} rounded-full overflow-hidden ${
-                    isActive ? "border-slate-500/50" : "border-slate-700"
+                <motion.button
+                  onClick={() => {
+                    setActiveIndex(index);
+                    setIsAutoPlaying(false);
+                  }}
+                  title={`${item.name} - ${item.role}`}
+                  animate={{
+                    x: "-50%",
+                    y: "-50%",
+                    scale: pos.scale,
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 120,
+                    damping: 18,
+                    mass: 0.8,
+                  }}
+                  className={`rounded-full focus:outline-none transition-shadow duration-300 group ${
+                    isActive
+                      ? "ring-4 ring-rose-500/50 ring-offset-4 ring-offset-[#fafafa] shadow-[0_0_30px_rgba(244,63,94,0.4)]"
+                      : "opacity-75 hover:opacity-100"
                   }`}
                 >
-                  <img
-                    src={item.avatar}
-                    alt={item.name}
-                    className={`w-full h-full object-cover transition-all duration-300 ${
+                  <div
+                    className={`relative rounded-full overflow-hidden transition-all duration-300 ${
                       isActive
-                        ? "brightness-100 contrast-105"
-                        : "brightness-75 group-hover:brightness-100"
+                        ? "w-24 h-24 md:w-28 md:h-28 border-4 border-rose-500"
+                        : "w-16 h-16 md:w-20 md:h-20 border-2 border-slate-200"
                     }`}
-                  />
-                  {isActive && (
-                    <span className="absolute inset-0 bg-rose-500/10 animate-pulse pointer-events-none" />
-                  )}
-                </div>
-              </button>
+                  >
+                    <img
+                      src={item.avatar}
+                      alt={item.name}
+                      className={`w-full h-full object-cover transition-all duration-300 ${
+                        isActive
+                          ? "brightness-100 contrast-105"
+                          : "brightness-90 group-hover:brightness-100"
+                      }`}
+                    />
+                    {isActive && (
+                      <span className="absolute inset-0 bg-rose-500/10 animate-pulse pointer-events-none" />
+                    )}
+                  </div>
+                </motion.button>
+              </motion.div>
             );
           })}
         </div>
@@ -230,14 +274,16 @@ export default function Testimonials() {
                 }}
                 className={`shrink-0 transition-all duration-300 rounded-full p-0.5 ${
                   isActive
-                    ? "ring-2 ring-rose-500 ring-offset-2 ring-offset-slate-950 scale-105"
-                    : "opacity-60 hover:opacity-100"
+                    ? "ring-2 ring-rose-500 ring-offset-2 ring-offset-[#fafafa] scale-110"
+                    : "opacity-60 hover:opacity-100 scale-90"
                 }`}
               >
                 <img
                   src={item.avatar}
                   alt={item.name}
-                  className="w-12 h-12 rounded-full object-cover shadow-sm border border-slate-700"
+                  className={`rounded-full object-cover shadow-xs border border-slate-200 ${
+                    isActive ? "w-14 h-14" : "w-10 h-10"
+                  }`}
                 />
               </button>
             );
@@ -245,47 +291,55 @@ export default function Testimonials() {
         </div>
 
         {/* Main Testimonial Card */}
-        <div className="w-full max-w-xl mx-auto my-auto relative z-20 px-2 sm:px-0">
-          <div className="bg-white/10 rounded-3xl p-6 sm:p-8 md:p-9 shadow-2xl shadow-slate-950/80 border border-slate-800 relative backdrop-blur-md transition-all duration-500 ease-in-out">
-            {/* Top Rose Double Quote Box */}
-            <div className="absolute -top-5 left-6 sm:left-8 bg-rose-500 text-white p-2.5 sm:p-3 rounded-xl shadow-lg shadow-rose-500/25 flex items-center justify-center">
+        <div className="w-full max-w-xl mx-auto my-auto relative z-10 pt-30">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85, y: 40 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="bg-white rounded-3xl p-6 sm:p-8 md:p-9 shadow-xl shadow-slate-200/50 border border-slate-200/80 relative backdrop-blur-md"
+          >
+            {/* Quote Icon Badge */}
+            <div className="absolute -top-5 left-6 sm:left-8 bg-rose-500 text-white p-2.5 sm:p-3 rounded-xl shadow-md shadow-rose-500/25 flex items-center justify-center">
               <Quote className="w-5 h-5 sm:w-6 sm:h-6 fill-current transform rotate-180" />
             </div>
 
-            {/* Testimonial Quote Text */}
-            <div className="mt-4 sm:mt-2 text-center">
-              <p className="text-slate-200 text-sm sm:text-base md:text-[1.05rem] leading-relaxed font-normal inline">
-                {activeTestimonial.quote}
-              </p>
+            {/* Testimonial Content Area */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTestimonial.id}
+                initial={{ opacity: 0, y: 15, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -15, scale: 0.98 }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+                className="mt-4 sm:mt-2 text-center"
+              >
+                <p className="text-slate-700 text-sm sm:text-base md:text-[1.05rem] leading-relaxed font-medium line-clamp-3">
+                  "{activeTestimonial.quote}"
+                </p>
 
-              {/* Closing Quote Symbol */}
-              <span className="inline-flex items-center ml-1 align-baseline text-rose-500">
-                <Quote className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current inline-block transform rotate-0" />
-              </span>
-            </div>
+                <div className="mt-6 text-center">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+                    {activeTestimonial.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-rose-500 mt-0.5 font-semibold">
+                    {activeTestimonial.role}
+                  </p>
 
-            {/* Author Information */}
-            <div className="mt-6 text-center">
-              <h3 className="text-base sm:text-lg font-bold text-rose-500 tracking-tight">
-                {activeTestimonial.name}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-400 mt-0.5 font-medium">
-                {activeTestimonial.role}
-              </p>
-
-              {/* Star Rating */}
-              <div className="flex justify-center items-center gap-1 mt-3">
-                {[...Array(activeTestimonial.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-400 text-amber-400 drop-shadow-sm"
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
+                  <div className="flex justify-center items-center gap-1 mt-3">
+                    {[...Array(activeTestimonial.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-400 text-amber-400 drop-shadow-xs"
+                      />
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
