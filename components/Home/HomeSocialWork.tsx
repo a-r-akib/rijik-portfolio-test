@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Quote,
   GraduationCap,
@@ -45,20 +46,19 @@ const quoteText =
 export default function HomeSocialWork() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Track scroll progress through the section
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "center 0.2"],
   });
 
-  // Smooth global spring to drive fluid scroll transitions
+  // Tuned spring physics for butter-smooth scroll tracking
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 80,
-    damping: 20,
+    stiffness: 90,
+    damping: 25,
+    mass: 0.8,
     restDelta: 0.001,
   });
 
-  // Staggered progress windows for cards
   const rawStep1 = useTransform(smoothProgress, [0.0, 0.25], [0, 1]);
   const rawStep2 = useTransform(smoothProgress, [0.2, 0.45], [0, 1]);
   const rawStep3 = useTransform(smoothProgress, [0.4, 0.65], [0, 1]);
@@ -66,11 +66,10 @@ export default function HomeSocialWork() {
 
   const steps = [rawStep1, rawStep2, rawStep3, rawStep4];
 
-  // Right column typewriter progress tracking
   const textCharsCount = quoteText.length;
   const rawCharsVisible = useTransform(
     smoothProgress,
-    [0.2, 0.85],
+    [0.15, 0.85],
     [0, textCharsCount],
   );
 
@@ -79,15 +78,14 @@ export default function HomeSocialWork() {
       ref={containerRef}
       className="flex flex-col lg:flex-row bg-[#fafafa] overflow-hidden"
     >
-      {/* Left Stats Panel - Stacked Cards with Impact Shake */}
+      {/* Left Column: Stats (Shake-free stable opacity & scale fade) */}
       <div className="bg-[#fafafa] lg:w-1/4 p-8 sm:p-10 flex flex-col justify-center gap-4 relative overflow-hidden">
         {statsData.map((stat, index) => {
           const step = steps[index];
 
-          // Card slide up into stacked position
-          const y = useTransform(step, [0, 1], [60, 0]);
-          const opacity = useTransform(step, [0, 0.4, 1], [0, 0.8, 1]);
-          const scale = useTransform(step, [0, 1], [0.94, 1]);
+          // Removed 'y' translation which caused shaking; using stable opacity & slight scale up only
+          const opacity = useTransform(step, [0, 0.3, 1], [0, 0.5, 1]);
+          const scale = useTransform(step, [0, 1], [0.98, 1]);
 
           const IconComponent = stat.icon;
 
@@ -95,11 +93,10 @@ export default function HomeSocialWork() {
             <motion.div
               key={index}
               style={{
-                y,
                 opacity,
                 scale,
               }}
-              className="bg-white p-4 rounded-2xl flex items-center gap-4 border border-slate-200/80 hover:border-slate-300 hover:shadow-md transition-all shadow-xs"
+              className="bg-white p-4 rounded-2xl flex items-center gap-4 border border-slate-200/80 hover:border-slate-300 hover:shadow-md transition-all shadow-xs will-change-[opacity,transform]"
             >
               <div
                 className={`w-12 h-12 ${stat.iconBg} rounded-xl flex items-center justify-center shrink-0`}
@@ -119,16 +116,16 @@ export default function HomeSocialWork() {
         })}
       </div>
 
-      {/* Center Image Container */}
+      {/* Middle Column: Image Showcase */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: false, margin: "-80px" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="lg:w-2/4 relative min-h-[450px] lg:min-h-[550px] overflow-hidden group"
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ type: "spring", stiffness: 80, damping: 20 }}
+        className="lg:w-2/4 relative min-h-[450px] lg:min-h-[550px] overflow-hidden group will-change-[transform,opacity]"
       >
         <Image
-          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop"
+          src="/img/achivment.jpg"
           alt="Rijik International Students and Professionals"
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -136,13 +133,13 @@ export default function HomeSocialWork() {
         <div className="absolute inset-0 bg-slate-950/20" />
       </motion.div>
 
-      {/* Right Quote Panel - Writing/Typewriter Text Effect */}
+      {/* Right Column: Leadership Quote */}
       <motion.div
-        initial={{ opacity: 0, x: 40 }}
+        initial={{ opacity: 0, x: 20 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: false, margin: "-80px" }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="bg-rose-600 lg:w-1/4 p-8 sm:p-10 flex flex-col justify-between text-white relative"
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ type: "spring", stiffness: 85, damping: 22 }}
+        className="bg-rose-600 lg:w-1/4 p-8 sm:p-10 flex flex-col justify-between text-white relative will-change-[transform,opacity]"
       >
         <Quote
           size={80}
@@ -154,21 +151,17 @@ export default function HomeSocialWork() {
             • Leadership Message •
           </span>
 
-          {/* Typing Text Effect */}
           <h3 className="text-xl sm:text-xl font-semibold leading-relaxed mb-8 text-white min-h-[160px]">
             {quoteText.split("").map((char, index) => {
               const charOpacity = useTransform(rawCharsVisible, (latest) =>
-                latest >= index ? 1 : 0.15,
-              );
-              const charY = useTransform(rawCharsVisible, (latest) =>
-                latest >= index ? 0 : 2,
+                latest >= index ? 1 : 0.2,
               );
 
               return (
                 <motion.span
                   key={index}
-                  style={{ opacity: charOpacity, y: charY }}
-                  className="inline-block transition-opacity duration-100"
+                  style={{ opacity: charOpacity }}
+                  className="inline-block will-change-opacity"
                 >
                   {char === " " ? "\u00A0" : char}
                 </motion.span>
@@ -184,9 +177,8 @@ export default function HomeSocialWork() {
           </div>
         </div>
 
-        {/* Social / Website Links */}
         <div className="flex items-center gap-3 pt-6 border-t border-white/20 relative z-10">
-          <a
+          <Link
             href="https://rijikint.com/"
             target="_blank"
             rel="noopener noreferrer"
@@ -194,28 +186,28 @@ export default function HomeSocialWork() {
             className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-rose-600 transition-colors"
           >
             <Globe size={16} />
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             aria-label="Facebook Profile"
             className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-rose-600 transition-colors"
           >
             <Globe size={16} />
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             aria-label="LinkedIn Profile"
             className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-rose-600 transition-colors"
           >
             <Globe size={16} />
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             aria-label="YouTube Channel"
             className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-rose-600 transition-colors"
           >
             <Globe size={16} />
-          </a>
+          </Link>
         </div>
       </motion.div>
     </section>

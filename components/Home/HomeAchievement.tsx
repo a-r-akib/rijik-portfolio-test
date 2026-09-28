@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import { Plus, Play, Phone, Mail, MapPin, Star } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -9,7 +9,6 @@ import WebPageWrapper from "../Wrapper/WebPageWrapper";
 export default function HomeAchievements() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Track scroll position relative to the section element
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "center 0.4"],
@@ -50,7 +49,6 @@ export default function HomeAchievements() {
       className="pt-40 pb-24 bg-slate-900 text-slate-100 relative overflow-hidden"
     >
       <WebPageWrapper>
-        {/* Header */}
         <motion.div
           style={{ opacity, y: headerY }}
           className="text-center mb-16"
@@ -63,11 +61,8 @@ export default function HomeAchievements() {
           </h2>
         </motion.div>
 
-        {/* 3-Column Bento Grid Structure */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch max-w-7xl mx-auto">
-          {/* COLUMN 1 */}
           <div className="flex flex-col gap-6">
-            {/* Bento 1: Top-Left Entry */}
             <motion.div
               style={{ opacity, scale, x: card1X, y: card1Y }}
               className="relative rounded-[2.5rem] overflow-hidden h-72 group border border-slate-800 shadow-lg shadow-black/40"
@@ -83,13 +78,12 @@ export default function HomeAchievements() {
                 <div className="text-4xl sm:text-5xl font-black text-white tracking-tight">
                   5000+
                 </div>
-                <div className="text-xs font-bold text-rose-400 uppercase tracking-wider mt-1">
+                <div className="text-xs font-bold text-rose-600 uppercase tracking-wider mt-1">
                   Students Supported
                 </div>
               </div>
             </motion.div>
 
-            {/* Bento 2: Bottom-Left Entry */}
             <motion.div
               style={{ opacity, scale, x: card2X, y: card2Y }}
               className="bg-slate-900 border border-slate-800 rounded-[2.5rem] p-8 flex flex-col justify-center h-52 shadow-lg shadow-black/30"
@@ -100,7 +94,6 @@ export default function HomeAchievements() {
             </motion.div>
           </div>
 
-          {/* COLUMN 2 */}
           <div className="flex flex-col gap-6">
             {/* Bento 3: Top-Center Entry (Featured Slate-800 Surface) */}
             <motion.div
@@ -146,7 +139,7 @@ export default function HomeAchievements() {
 
               <div className="relative z-10">
                 <div className="text-5xl font-black tracking-tight mb-2 text-white">98%</div>
-                <div className="text-xs font-extrabold text-rose-400 uppercase tracking-wider mb-1">
+                <div className="text-xs font-extrabold text-rose-600 uppercase tracking-wider mb-1">
                   Satisfaction Rate
                 </div>
                 <p className="text-xs text-slate-300 font-medium leading-relaxed">
@@ -171,11 +164,11 @@ export default function HomeAchievements() {
               </div>
 
               <div className="flex items-center gap-2 pt-2">
-                <button className="w-9 h-9 bg-slate-800 border border-slate-700/80 rounded-lg flex items-center justify-center text-rose-500 shadow-sm hover:border-rose-500 transition-colors">
+                <button className="w-9 h-9 bg-slate-800 border border-slate-700/80 rounded-lg flex items-center justify-center text-rose-600 shadow-sm hover:border-rose-500 transition-colors">
                   <Plus size={16} />
                 </button>
-                <button className="w-9 h-9 bg-slate-800 border border-slate-700/80 rounded-lg flex items-center justify-center text-rose-500 shadow-sm hover:border-rose-500 transition-colors">
-                  <Play size={14} className="fill-rose-500 ml-0.5" />
+                <button className="w-9 h-9 bg-slate-800 border border-slate-700/80 rounded-lg flex items-center justify-center text-rose-600 shadow-sm hover:border-rose-500 transition-colors">
+                  <Play size={14} className="fill-rose-600 ml-0.5" />
                 </button>
                 <button className="w-9 h-9 bg-slate-800 border border-slate-700/80 rounded-lg flex items-center justify-center text-slate-300 shadow-sm hover:text-white transition-colors">
                   <Phone size={15} />
@@ -190,9 +183,7 @@ export default function HomeAchievements() {
             </motion.div>
           </div>
 
-          {/* COLUMN 3 */}
           <div className="flex flex-col gap-6">
-            {/* Bento 5: Top-Right Entry */}
             <motion.div
               style={{ opacity, scale, x: card5X, y: card5Y }}
               className="bg-slate-800/50 border border-slate-800 rounded-[2.5rem] p-8 flex flex-col items-center justify-center text-center h-52 relative shadow-lg shadow-black/30"
@@ -209,7 +200,6 @@ export default function HomeAchievements() {
               </p>
             </motion.div>
 
-            {/* Bento 6: Bottom-Right Entry */}
             <motion.div
               style={{ opacity, scale, x: card6X, y: card6Y }}
               className="relative rounded-[2.5rem] overflow-hidden h-72 border border-slate-800 shadow-lg shadow-black/40 group"

@@ -19,16 +19,14 @@ export default function HomeHero() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // 1. Track scroll progress relative to this section
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
 
-  // 2. Map scroll progress to visual transform properties
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]); // Parallax zoom on images
-  const overlayY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]); // Subtle downward drift for text
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]); // Smooth fade-out as user scrolls past
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]); 
+  const overlayY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 6000, stopOnInteraction: false }),
@@ -67,7 +65,6 @@ export default function HomeHero() {
                 className="min-w-0 flex-[0_0_100%] overflow-hidden"
               >
                 <div className="relative size-full h-screen overflow-hidden">
-                  {/* Scroll-animated Image with Parallax Zoom */}
                   <motion.div
                     style={{ scale: imageScale }}
                     className="relative size-full"
@@ -86,10 +83,9 @@ export default function HomeHero() {
           </div>
         </div>
 
-        {/* Scroll-animated Bottom Overlay */}
         <motion.div
           style={{ y: overlayY, opacity: overlayOpacity }}
-          className="absolute left-0 w-full bottom-0 gap-10 px-15 pb-30 pt-20 bg-linear-to-t from-black to-transparent pointer-events-auto"
+          className="absolute left-0 w-full bottom-0 gap-10 px-15 pb-40 pt-20 bg-linear-to-t from-black to-transparent pointer-events-auto"
         >
           <WebPageWrapper>
             <motion.div
@@ -98,12 +94,9 @@ export default function HomeHero() {
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="space-y-3"
             >
-              {/* Header Title */}
               <h1 className="text-2xl sm:text-5xl font-black text-white">
                 RIJIK INTERNATIONAL CO. LTD.
               </h1>
-
-              {/* Tagline & Country Pills */}
               <div className="flex items-center gap-2 text-sm sm:text-base font-semibold text-slate-100">
                 <span>One Platform, Multiple Services in</span>
                 <span className="">
@@ -115,8 +108,6 @@ export default function HomeHero() {
                 </span>
               </div>
             </motion.div>
-
-            {/* Slide Navigation Controls */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

@@ -9,7 +9,7 @@ import HomeSocialWork from "@/components/Home/HomeSocialWork";
 import HomeUSP  from "@/components/Home/HomeUsp";
 import HomeWhyChoose from "@/components/Home/HomeWhyChoose";
 import HomeCompany  from "@/components/Home/HomeCompany";
-import ServicesSection from "@/components/Home/HomeService2";
+import HomeService2 from "@/components/Home/HomeService2";
 export default function Home() {
   return (
     <div className="">
@@ -17,7 +17,7 @@ export default function Home() {
       <HomeUSP/>
       <HomeCompany/>
       <HomeAbout/>
-      <ServicesSection/>
+      <HomeService2/>
       <HomeAchievements/>
       <HomeSocialWork/>
       <HomeWhyChoose/>

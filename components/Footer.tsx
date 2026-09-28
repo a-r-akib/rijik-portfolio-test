@@ -41,7 +41,7 @@ export default function Footer() {
           <Link href="/" className="group relative">
             <div className="relative flex items-center justify-center size-11 rounded-full bg-slate-100 border border-slate-700 group-hover:border-slate-500 transition-colors duration-300 overflow-hidden shadow-inner">
               <Image
-                src="/img/logo.png"
+                src="/logo/logo.png"
                 alt="RIJIK Logo"
                 height={28}
                 width={28}

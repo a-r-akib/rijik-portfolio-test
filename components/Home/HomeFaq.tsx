@@ -103,7 +103,7 @@ export default function HomeFaq() {
               If you have any questions, just book a 15-minute call with us before subscribing.
             </p>
 
-            <button className="w-full bg-rose-500 hover:bg-rose-600 text-white font-semibold py-3.5 px-6 rounded-full transition-all duration-200 shadow-md shadow-rose-500/20 active:scale-[0.98]">
+            <button className="w-full bg-linear-to-r from-red-600 via-rose-500 to-red-600 text-white font-semibold py-3.5 px-6 rounded-full transition-all duration-500 shadow-md shadow-rose-500/20 active:scale-[0.98] hover:scale-110 scale-3d cursor-pointer">
               Book a Free Call
             </button>
           </motion.div>

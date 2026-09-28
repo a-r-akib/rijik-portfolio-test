@@ -31,7 +31,7 @@ const scaleIn = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const},
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -40,7 +40,6 @@ export default function HomeAbout() {
     <section className="py-24 relative bg-slate-900 text-white overflow-hidden">
       <WebPageWrapper>
         <div className="flex flex-col lg:flex-row gap-16 items-center">
-          {/* Left Content Column */}
           <motion.div
             className="w-full lg:w-1/2"
             variants={containerVariants}
@@ -48,7 +47,6 @@ export default function HomeAbout() {
             whileInView="visible"
             viewport={{ once: false, margin: "-100px", amount: 0.2 }}
           >
-            {/* Image Container */}
             <motion.div
               variants={scaleIn}
               className="relative mb-12 rounded-[2rem] overflow-hidden h-[400px]"
@@ -64,7 +62,7 @@ export default function HomeAbout() {
                 whileInView={{ opacity: 1, x: 0, scale: 1 }}
                 viewport={{ once: false }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="absolute top-8 right-8 bg-gradient-to-r from-red-600 via-rose-500 to-red-600 text-white p-6 rounded-2xl text-center shadow-xl z-10"
+                className="absolute top-8 right-8 bg-linear-to-r from-red-600 via-rose-500 to-red-600 text-white p-6 rounded-2xl text-center shadow-xl z-10"
               >
                 <div className="text-4xl font-black">100%</div>
                 <div className="text-xs font-semibold uppercase tracking-wider mt-1">
@@ -75,7 +73,6 @@ export default function HomeAbout() {
               </motion.div>
             </motion.div>
 
-            {/* Paragraph */}
             <motion.p
               variants={fadeInUp}
               className="text-slate-300 mb-8 text-base sm:text-lg leading-relaxed max-w-lg"
@@ -86,10 +83,9 @@ export default function HomeAbout() {
               career path with confidence and clarity.
             </motion.p>
 
-            {/* CTA Button */}
             <motion.button
               variants={fadeInUp}
-              className="bg-gradient-to-r from-red-600 via-rose-500 to-red-600 text-white px-6 py-3.5 rounded-full font-semibold flex items-center gap-3 transition-transform hover:scale-105 active:scale-95 group shadow-lg shadow-rose-950/40 cursor-pointer"
+              className="bg-linear-to-r from-red-600 via-rose-500 to-red-600 text-white px-6 py-3.5 rounded-full font-semibold flex items-center gap-3 transition-transform hover:scale-105 active:scale-95 group shadow-lg shadow-rose-950/40 cursor-pointer"
             >
               <span>Know About Us</span>
               <span className="w-8 h-8 rounded-full text-slate-900 bg-white flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
@@ -98,7 +94,6 @@ export default function HomeAbout() {
             </motion.button>
           </motion.div>
 
-          {/* Right Content Column */}
           <motion.div
             className="w-full lg:w-1/2"
             variants={containerVariants}
@@ -106,7 +101,6 @@ export default function HomeAbout() {
             whileInView="visible"
             viewport={{ once: false, margin: "-100px", amount: 0.2 }}
           >
-            {/* Tagline */}
             <motion.span
               variants={fadeInUp}
               className="text-xs sm:text-sm font-semibold text-rose-500 uppercase tracking-widest block mb-2"
@@ -114,7 +108,6 @@ export default function HomeAbout() {
               • About Us •
             </motion.span>
 
-            {/* Heading */}
             <motion.h2
               variants={fadeInUp}
               className="text-3xl md:text-5xl font-extrabold mb-8 leading-tight text-white"
@@ -122,12 +115,10 @@ export default function HomeAbout() {
               Connecting People & Opportunities Across Borders
             </motion.h2>
 
-            {/* Feature Cards Grid */}
             <motion.div
               variants={fadeInUp}
               className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8"
             >
-              {/* Card 1 */}
               <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700/80 hover:border-rose-500/50 transition-colors">
                 <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center shadow-inner mb-4">
                   <Goal className="text-rose-500" size={20} />
@@ -137,12 +128,11 @@ export default function HomeAbout() {
                 </h3>
                 <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
                   For students in Japan, we provide hands-on guidance, cultural
-                  orientation, and continuous assistance so they can adapt smoothly
-                  and focus on growth.
+                  orientation, and continuous assistance so they can adapt
+                  smoothly and focus on growth.
                 </p>
               </div>
 
-              {/* Card 2 */}
               <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700/80 hover:border-rose-500/50 transition-colors">
                 <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center shadow-inner mb-4">
                   <Waypoints className="text-rose-500" size={20} />
@@ -151,16 +141,14 @@ export default function HomeAbout() {
                   Global Transfers
                 </h3>
                 <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                  Beyond education and employment, we make global money transfers
-                  easier and reliable, helping individuals stay connected with
-                  their families and goals.
+                  Beyond education and employment, we make global money
+                  transfers easier and reliable, helping individuals stay
+                  connected with their families and goals.
                 </p>
               </div>
             </motion.div>
 
-            {/* Bottom Media Section */}
             <motion.div variants={fadeInUp} className="flex gap-4 h-40">
-              {/* Stats Card */}
               <div className="w-1/3 bg-slate-800 rounded-2xl border border-slate-700/80 p-5 text-white flex flex-col justify-center">
                 <div className="flex -space-x-2 mb-3">
                   <Image
@@ -187,7 +175,6 @@ export default function HomeAbout() {
                 </div>
               </div>
 
-              {/* Video Thumbnail */}
               <div className="w-2/3 rounded-2xl overflow-hidden relative border border-slate-700/80">
                 <Image
                   src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=600&auto=format&fit=crop"
@@ -197,16 +184,20 @@ export default function HomeAbout() {
                 />
                 <div className="absolute inset-0 bg-slate-950/30" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-12 h-12 bg-rose-500/90 hover:bg-rose-600 backdrop-blur-sm rounded-full flex items-center justify-center cursor-pointer shadow-lg"
-                  >
-                    <Play
-                      size={18}
-                      className="text-white ml-0.5 fill-white"
-                    />
-                  </motion.div>
+                  <div className="relative flex items-center justify-center">
+                    <div className="absolute w-16 h-16 bg-rose-500/40 rounded-full animate-ping pointer-events-none" />
+
+                    <motion.div
+                      whileHover={{ scale: 1.15 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-14 h-14 bg-linear-to-r from-red-600 via-rose-500 to-red-600 backdrop-blur-sm rounded-full flex items-center justify-center cursor-pointer shadow-xl relative z-10 transition-colors"
+                    >
+                      <Play
+                        size={20}
+                        className="text-white ml-0.5 fill-white"
+                      />
+                    </motion.div>
+                  </div>
                 </div>
               </div>
             </motion.div>

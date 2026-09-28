@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import { CheckCircle2, Star, Sparkles } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import WebPageWrapper from "../Wrapper/WebPageWrapper";
+import Link from "next/link";
 
 export default function HomeWhyChoose() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -16,8 +17,16 @@ export default function HomeWhyChoose() {
   });
 
   // Synchronized oppose-direction scroll movement
-  const moveLeftToRight = useTransform(scrollYProgress, [0, 1], ["-20%", "10%"]);
-  const moveRightToLeft = useTransform(scrollYProgress, [0, 1], ["10%", "-20%"]);
+  const moveLeftToRight = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["-20%", "10%"],
+  );
+  const moveRightToLeft = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["10%", "-20%"],
+  );
 
   // Subtle Scroll Physics for Content Elements
   const contentY = useTransform(scrollYProgress, [0, 1], [60, -60]);
@@ -29,9 +38,7 @@ export default function HomeWhyChoose() {
       ref={sectionRef}
       className="py-24 bg-slate-900 text-slate-100 relative overflow-hidden"
     >
-      {/* Synchronized Dual-Direction Background Text (Dark Surface Optimized) */}
       <div className="absolute inset-0 flex flex-col justify-center pointer-events-none select-none z-0 overflow-hidden whitespace-nowrap opacity-30">
-        {/* Line 1: WHY CHOOSE (Moves Left to Right) */}
         <motion.div
           style={{ x: moveLeftToRight }}
           className="text-[10vw] font-black uppercase text-slate-700 tracking-tighter leading-none"
@@ -39,7 +46,6 @@ export default function HomeWhyChoose() {
           WHY CHOOSE • WHY CHOOSE • WHY CHOOSE • WHY CHOOSE
         </motion.div>
 
-        {/* Line 2: RIJIK INTERNATIONAL (Moves Right to Left) */}
         <motion.div
           style={{ x: moveRightToLeft }}
           className="text-[10vw] font-black uppercase text-slate-800 tracking-tighter leading-none -mt-2 sm:-mt-6"
@@ -51,15 +57,14 @@ export default function HomeWhyChoose() {
       <WebPageWrapper>
         <div className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left Content Column */}
             <motion.div style={{ y: contentY, opacity }}>
               <span className="text-xs sm:text-sm font-semibold text-rose-500 uppercase tracking-widest block mb-2">
                 • WHY CHOOSE RIJIK INTERNATIONAL •
               </span>
 
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-6">
                 Your Trusted Gateway to <br />
-                <span className="text-rose-500">Japan</span> Education & Career
+                <span className="text-rose-600">Japan</span> Education & Career
                 Success
               </h2>
 
@@ -71,7 +76,6 @@ export default function HomeWhyChoose() {
                 their aspirations in Japan and worldwide.
               </p>
 
-              {/* Image & Features Row */}
               <div className="flex flex-col sm:flex-row gap-6 mb-10 items-center sm:items-start">
                 <div className="relative w-full sm:w-48 h-36 rounded-2xl overflow-hidden shadow-lg shrink-0 border border-slate-800 bg-slate-900">
                   <Image
@@ -84,7 +88,7 @@ export default function HomeWhyChoose() {
                 <div className="space-y-3.5 w-full">
                   <div className="flex items-center gap-2.5">
                     <CheckCircle2
-                      className="text-rose-500 shrink-0"
+                      className="text-rose-600 shrink-0"
                       size={20}
                     />
                     <span className="font-bold text-slate-200 text-sm">
@@ -93,7 +97,7 @@ export default function HomeWhyChoose() {
                   </div>
                   <div className="flex items-center gap-2.5">
                     <CheckCircle2
-                      className="text-rose-500 shrink-0"
+                      className="text-rose-600 shrink-0"
                       size={20}
                     />
                     <span className="font-bold text-slate-200 text-sm">
@@ -102,7 +106,7 @@ export default function HomeWhyChoose() {
                   </div>
                   <div className="flex items-center gap-2.5">
                     <CheckCircle2
-                      className="text-rose-500 shrink-0"
+                      className="text-rose-600 shrink-0"
                       size={20}
                     />
                     <span className="font-bold text-slate-200 text-sm">
@@ -111,7 +115,7 @@ export default function HomeWhyChoose() {
                   </div>
                   <div className="flex items-center gap-2.5">
                     <CheckCircle2
-                      className="text-rose-500 shrink-0"
+                      className="text-rose-600 shrink-0"
                       size={20}
                     />
                     <span className="font-bold text-slate-200 text-sm">
@@ -121,16 +125,15 @@ export default function HomeWhyChoose() {
                 </div>
               </div>
 
-              {/* CTA & Rating Row */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                <a
+                <Link
                   href="https://rijikint.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-rose-600 hover:bg-rose-500 text-white font-bold py-3.5 px-8 rounded-full transition-colors text-sm shadow-lg shadow-rose-950/50"
+                  className="bg-linear-to-r from-red-600 via-rose-500 to-red-600 text-white font-bold py-3.5 px-8 rounded-full text-sm shadow-lg shadow-rose-950/50 scale-3d hover:scale-110 duration-500"
                 >
                   Explore Services
-                </a>
+                </Link>
 
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-3">
@@ -172,23 +175,20 @@ export default function HomeWhyChoose() {
               </div>
             </motion.div>
 
-            {/* Right Image Feature Column */}
             <motion.div style={{ y: imageY, opacity }} className="relative">
-              {/* Offset Accent Card */}
               <div className="absolute inset-0 bg-slate-800/40 rounded-[3rem] transform translate-x-4 translate-y-4 -z-10 border border-rose-900/30" />
 
               <div className="relative rounded-[3rem] overflow-hidden h-[550px] lg:h-[600px] shadow-2xl border border-slate-800 group bg-slate-900">
                 <Image
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop"
+                  src="/img/about.jpg"
                   alt="Rijik International Student Success"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-90"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
 
-                {/* Floating Dark Glass Badge */}
                 <div className="absolute bottom-8 left-8 right-8 bg-slate-900/90 backdrop-blur-md p-5 rounded-2xl border border-slate-800 shadow-2xl flex items-center gap-4">
-                  <div className="w-12 h-12 bg-rose-600 text-white rounded-xl flex items-center justify-center shrink-0 shadow-md shadow-rose-950/40">
+                  <div className="w-12 h-12 bg-linear-to-r from-red-600 via-rose-500 to-red-600 text-white rounded-xl flex items-center justify-center shrink-0 shadow-md shadow-rose-950/40">
                     <Sparkles size={24} />
                   </div>
                   <div>
