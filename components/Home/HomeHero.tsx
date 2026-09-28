@@ -9,10 +9,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import WebPageWrapper from "../Wrapper/WebPageWrapper";
 
 const slides = [
-  { personImage: "/img/1.png" },
+  { personImage: "/img/student3-edit.jpeg" },
+  { personImage: "/img/student-edit.jpeg" },
   { personImage: "/img/3.png" },
-  { personImage: "/img/4.png" },
-  { personImage: "/img/5.png" },
 ];
 
 export default function HomeHero() {

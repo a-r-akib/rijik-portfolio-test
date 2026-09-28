@@ -5,7 +5,7 @@ import HomeFaq from "@/components/Home/HomeFaq";
 import HomeHero from "@/components/Home/HomeHero";
 import HomeReview from "@/components/Home/HomeReview";
 import HomeServices from "@/components/Home/HomeService";
-import HomeSocialWork from "@/components/Home/HomeSocialWork";
+import SocialWelfareSection from "@/components/Home/HomeSocialWork";
 import HomeUSP  from "@/components/Home/HomeUsp";
 import HomeWhyChoose from "@/components/Home/HomeWhyChoose";
 import HomeCompany  from "@/components/Home/HomeCompany";
@@ -19,7 +19,7 @@ export default function Home() {
       <HomeAbout/>
       <HomeService2/>
       <HomeAchievements/>
-      <HomeSocialWork/>
+      <SocialWelfareSection/>
       <HomeWhyChoose/>
       <HomeReview/>
       <HomeBlog/>

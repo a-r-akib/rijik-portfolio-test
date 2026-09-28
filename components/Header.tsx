@@ -18,7 +18,28 @@ export default function AgronNavbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const navItems = ["Home", "Companies", "About", "News", "FAQ"];
+  const navItems = [
+    {
+      name: "Home",
+      link: "/",
+    },
+    {
+      name: "Companies",
+      link: "/",
+    },
+    {
+      name: "About",
+      link: "/",
+    },
+    {
+      name: "News",
+      link: "/",
+    },
+    {
+      name: "FAQ",
+      link: "/",
+    },
+  ];
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -80,7 +101,7 @@ export default function AgronNavbar() {
             <ul className="flex items-center gap-1 bg-slate-100/80 border border-slate-300/80 p-1 rounded-full shadow-inner">
               {navItems.map((item, index) => (
                 <li
-                  key={item}
+                  key={index}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   className="relative px-4 py-2 text-[16px] font-semibold text-slate-700 cursor-pointer"
@@ -91,7 +112,7 @@ export default function AgronNavbar() {
                   )}
 
                   <button className="relative z-10 flex items-center gap-1.5 group hover:text-rose-600 transition-colors duration-200 cursor-pointer">
-                    <span>{item}</span>
+                    <span>{item.name}</span>
                     {/* <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-rose-600 transition-transform duration-300 group-hover:rotate-180" /> */}
                   </button>
                 </li>
@@ -126,15 +147,14 @@ export default function AgronNavbar() {
       {/* MOBILE EXPANDABLE SHEET */}
       {isMobileMenuOpen && (
         <div className="xl:hidden mt-3 mx-auto max-w-7xl bg-white/95 backdrop-blur-2xl border border-slate-200 rounded-3xl p-6 shadow-2xl shadow-slate-900/10 space-y-6">
-
           <ul className="flex flex-col gap-1">
-            {navItems.map((item) => (
-              <li key={item}>
+            {navItems.map((item,index) => (
+              <li key={index}>
                 <a
                   href="#"
                   className="flex items-center justify-between px-4 py-3 rounded-xl font-medium text-sm text-slate-700 hover:bg-rose-50 hover:text-rose-600 transition-colors"
                 >
-                  <span>{item}</span>
+                  <span>{item.name}</span>
                   {/* <ChevronDown className="w-4 h-4 text-slate-400" /> */}
                 </a>
               </li>
@@ -142,7 +162,6 @@ export default function AgronNavbar() {
           </ul>
 
           <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">
-
             <button className="flex-1 bg-gradient-to-r from-rose-500 to-rose-600 text-white font-semibold text-xs px-5 py-3 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-rose-500/25 active:scale-95 transition-all">
               <span>Let's Talk</span>
               <ArrowUpRight className="w-3.5 h-3.5" />

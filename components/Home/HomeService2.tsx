@@ -119,7 +119,7 @@ export default function HomeService2() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ type: "spring", stiffness: 80, damping: 20 }}
             className="relative z-10 text-center max-w-3xl mx-auto mb-12 sm:mb-28 will-change-[transform,opacity]"
           >
@@ -140,7 +140,7 @@ export default function HomeService2() {
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{
                 type: "spring",
                 stiffness: 85,
@@ -156,7 +156,7 @@ export default function HomeService2() {
                     key={service.id}
                     initial={{ opacity: 0, x: -15 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
+                    viewport={{ once: false, amount: 0.2 }}
                     transition={{
                       type: "spring",
                       stiffness: 90,
@@ -200,7 +200,7 @@ export default function HomeService2() {
             <motion.div
               initial={{ opacity: 0, scale: 0.92, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{
                 type: "spring",
                 stiffness: 80,
@@ -261,7 +261,7 @@ export default function HomeService2() {
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{
                 type: "spring",
                 stiffness: 85,

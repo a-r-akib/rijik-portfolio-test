@@ -29,25 +29,25 @@ const blogPosts = [
     date: "Sep 15, 2026",
     category: "Career Growth",
     title:
-      "Navigating the 2026 Job Market: Skills That Matter Most to Employers",
+      "Empowering Communities, Transforming Lives",
     image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop",
+      "/company/img/rf.jpg",
   },
   {
     id: 2,
     date: "Sep 10, 2026",
     category: "Interview Prep",
-    title: "How to Ace Tech & Remote Interviews with Confidence and Clarity",
+    title: "Bringing Bangladesh to Tokyo, One Plate at a Time",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop",
+      "/company/img/gb.jpeg",
   },
   {
     id: 3,
     date: "Sep 04, 2026",
     category: "Workplace Culture",
-    title: "Building Sustainable Work-Life Balance in Modern Remote Teams",
+    title: "Your Path to Japanese Language Mastery",
     image:
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600&auto=format&fit=crop",
+      "/company/img/jejc.jpg",
   },
 ];
 

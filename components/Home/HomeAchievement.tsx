@@ -68,7 +68,7 @@ export default function HomeAchievements() {
               className="relative rounded-[2.5rem] overflow-hidden h-72 group border border-slate-800 shadow-lg shadow-black/40"
             >
               <Image
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop"
+                src="/img/student.jpg"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-90"
                 alt="Students studying"
@@ -205,7 +205,7 @@ export default function HomeAchievements() {
               className="relative rounded-[2.5rem] overflow-hidden h-72 border border-slate-800 shadow-lg shadow-black/40 group"
             >
               <Image
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop"
+                src="/company/img/mct.jpg"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-90"
                 alt="Professional portrait"

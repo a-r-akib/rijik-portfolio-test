@@ -52,7 +52,7 @@ export default function HomeAbout() {
               className="relative mb-12 rounded-[2rem] overflow-hidden h-[400px]"
             >
               <Image
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop"
+                src="/img/student.jpg"
                 alt="Rijik International Team"
                 fill
                 className="object-cover"
@@ -177,7 +177,7 @@ export default function HomeAbout() {
 
               <div className="w-2/3 rounded-2xl overflow-hidden relative border border-slate-700/80">
                 <Image
-                  src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=600&auto=format&fit=crop"
+                  src="/img/student.jpg"
                   fill
                   className="object-cover"
                   alt="Students and professionals"
