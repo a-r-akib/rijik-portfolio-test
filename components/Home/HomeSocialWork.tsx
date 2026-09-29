@@ -96,7 +96,7 @@ export default function SocialWelfareSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
                 transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
-                className="text-xs sm:text-sm font-bold text-rose-500 uppercase tracking-widest block mb-2"
+                className="text-xs sm:text-sm text-rose-500 uppercase tracking-widest block mb-2 font-semibold"
               >
                 • Our Social Welfare Skill •
               </motion.span>

@@ -10,11 +10,13 @@ import HomeUSP  from "@/components/Home/HomeUsp";
 import HomeWhyChoose from "@/components/Home/HomeWhyChoose";
 import HomeCompany  from "@/components/Home/HomeCompany";
 import HomeService2 from "@/components/Home/HomeService2";
+import HomeCompany2 from "@/components/Home/HomeCompany2";
 export default function Home() {
   return (
     <div className="">
       <HomeHero/>
       <HomeUSP/>
+      <HomeCompany2/>
       <HomeCompany/>
       <HomeAbout/>
       <HomeService2/>

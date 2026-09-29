@@ -58,7 +58,7 @@ export default function HomeFaq() {
 
   return (
     <section className="bg-[#fafafa] text-slate-800 py-24 flex items-center justify-center overflow-hidden border-y border-slate-200/80">
-      <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div className="max-w-7xl w-full px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Left Column */}
         <motion.div
           className="lg:col-span-5 space-y-8"
@@ -139,7 +139,7 @@ export default function HomeFaq() {
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className="bg-white rounded-2xl border border-slate-200/80 shadow-xs transition-all duration-200 overflow-hidden hover:border-slate-300"
+                className="bg-white rounded-2xl border border-slate-200/80 shadow-xs transition-colors duration-200 overflow-hidden hover:border-slate-300"
               >
                 <button
                   onClick={() => toggleFaq(index)}
@@ -157,16 +157,17 @@ export default function HomeFaq() {
                   </span>
                 </button>
 
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3"
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
                     >
-                      {faq.answer}
+                      <div className="px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                        {faq.answer}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
