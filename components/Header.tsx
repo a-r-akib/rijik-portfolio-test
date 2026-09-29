@@ -25,19 +25,19 @@ export default function AgronNavbar() {
     },
     {
       name: "Companies",
-      link: "/",
+      link: "/companies",
     },
     {
       name: "About",
-      link: "/",
+      link: "/about",
     },
     {
       name: "News",
-      link: "/",
+      link: "/news",
     },
     {
       name: "FAQ",
-      link: "/",
+      link: "/faq",
     },
   ];
 
@@ -111,10 +111,13 @@ export default function AgronNavbar() {
                     <div className="absolute inset-0 bg-gradient-to-r from-rose-50 to-rose-100/80 rounded-full border border-rose-200/80 transition-all duration-300" />
                   )}
 
-                  <button className="relative z-10 flex items-center gap-1.5 group hover:text-rose-600 transition-colors duration-200 cursor-pointer">
+                  <Link
+                    href={item.link}
+                    className="relative z-10 flex items-center gap-1.5 group hover:text-rose-600 transition-colors duration-200 cursor-pointer"
+                  >
                     <span>{item.name}</span>
                     {/* <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-rose-600 transition-transform duration-300 group-hover:rotate-180" /> */}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -148,7 +151,7 @@ export default function AgronNavbar() {
       {isMobileMenuOpen && (
         <div className="xl:hidden mt-3 mx-auto max-w-7xl bg-white/95 backdrop-blur-2xl border border-slate-200 rounded-3xl p-6 shadow-2xl shadow-slate-900/10 space-y-6">
           <ul className="flex flex-col gap-1">
-            {navItems.map((item,index) => (
+            {navItems.map((item, index) => (
               <li key={index}>
                 <a
                   href="#"

@@ -94,7 +94,7 @@ export default function Footer() {
         >
           {/* Col 1: Bio & Socials */}
           <motion.div variants={itemVariants}>
-            <p className="text-slate-400 text-sm mb-8 leading-relaxed">
+            <p className="text-slate-300 text-sm mb-8 leading-relaxed">
               Rijik connects ambitious talent with top-tier recruiters, remote opportunities, and local companies driving innovation worldwide.
             </p>
             <div className="flex gap-3">
@@ -134,7 +134,7 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-6 text-white border-l-2 border-rose-500 pl-3">
               For Job Seekers
             </h4>
-            <ul className="space-y-3 text-slate-400 text-sm">
+            <ul className="space-y-3 text-slate-300 text-sm">
               <li>
                 <a href="#" className="hover:text-rose-500 transition-colors">
                   Browse All Jobs
@@ -163,7 +163,7 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-6 text-white border-l-2 border-rose-500 pl-3">
               For Employers
             </h4>
-            <ul className="space-y-3 text-slate-400 text-sm">
+            <ul className="space-y-3 text-slate-300 text-sm">
               <li>
                 <a href="#" className="hover:text-rose-500 transition-colors">
                   Post a Job Opening
@@ -206,7 +206,7 @@ export default function Footer() {
                 <ArrowRight size={16} />
               </button>
             </form>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-300 leading-relaxed">
               Subscribe to get instant alerts on top tech, design, and remote career opportunities delivered directly to your inbox.
             </p>
           </motion.div>
