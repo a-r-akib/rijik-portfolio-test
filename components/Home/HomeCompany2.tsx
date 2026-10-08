@@ -143,7 +143,7 @@ export default function HomeCompany2() {
   };
 
   return (
-    <section className="w-full bg-slate-900 flex flex-col justify-between relative overflow-hidden pb-20 pt-40 -mt-34">
+    <section className="w-full bg-[#fafafa] flex flex-col justify-between relative overflow-hidden pb-8 pt-40 -mt-34">
       <WebPageWrapper>
         <motion.header
           initial={{ opacity: 0, y: -30 }}
@@ -155,7 +155,7 @@ export default function HomeCompany2() {
           <span className="text-xs sm:text-sm font-semibold text-rose-500 uppercase tracking-widest block mb-2">
             • Companies •
           </span>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">
+          <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">
             Our <span className="text-rose-600">Sister </span>Concerns
           </h1>
         </motion.header>
@@ -211,25 +211,21 @@ export default function HomeCompany2() {
                     }}
                     className={`rounded-full focus:outline-none transition-shadow duration-300 group ${
                       isActive
-                        ? "ring-4 ring-rose-100/50 ring-offset-4 ring-offset-[#fafafa] shadow-[0_0_30px_rgba(244,63,94,0.4)]"
-                        : "opacity-75 hover:opacity-100"
+                        ? "ring-4 ring-white drop-shadow-xl drop-shadow-slate-400"
+                        : "opacity-90 hover:opacity-100"
                     }`}
                   >
                     <div
                       className={`relative rounded-full overflow-hidden transition-all duration-300 ${
                         isActive
                           ? "w-24 h-24 md:w-28 md:h-28 border-4 border-rose-600"
-                          : "w-16 h-16 md:w-20 md:h-20 border-2 border-slate-200"
+                          : "w-20 h-20 md:w-24 md:h-24 border-2 border-white drop-shadow-xl drop-shadow-slate-400"
                       }`}
                     >
                       <img
                         src={item.avatar}
                         alt={item.name}
-                        className={`w-full h-full object-cover transition-all duration-300 bg-[#fafafa] ${
-                          isActive
-                            ? "brightness-100 contrast-105 "
-                            : "brightness-90 group-hover:brightness-100 grayscale-50"
-                        }`}
+                        className={`w-full h-full object-cover transition-all duration-300 bg-[#fafafa]`}
                       />
                       {isActive && (
                         <span className="absolute inset-0 bg-rose-500/10 animate-pulse pointer-events-none" />
@@ -277,9 +273,8 @@ export default function HomeCompany2() {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="bg-slate-900/70 rounded-3xl p-6 sm:p-8 md:p-9 shadow-xl shadow-slate-700/50 border border-slate-700/80 relative backdrop-blur-md"
+              className="bg-white/70 rounded-3xl p-6 sm:p-8 md:p-9 shadow-xl shadow-slate-300/50 border border-slate-200/80 relative backdrop-blur-md"
             >
-              {/* Testimonial Content Area */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTestimonial.id}
@@ -289,7 +284,7 @@ export default function HomeCompany2() {
                   transition={{ duration: 0.35, ease: "easeInOut" }}
                   className="mt-4 sm:mt-4 text-center"
                 >
-                  <p className="text-slate-100 text-sm sm:text-base md:text-[1.05rem] leading-relaxed font-medium line-clamp-3">
+                  <p className="text-slate-800 text-sm sm:text-base md:text-[1.05rem] leading-relaxed font-medium line-clamp-3">
                     "{activeTestimonial.quote}"
                   </p>
 

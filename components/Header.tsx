@@ -1,14 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {
-  Search,
-  ShoppingBag,
-  ArrowUpRight,
-  Menu,
-  X,
-  ChevronDown,
-} from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,6 +11,7 @@ export default function AgronNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const path = usePathname();
 
   const navItems = [
     {
@@ -84,15 +79,19 @@ export default function AgronNavbar() {
       >
         <div className="flex items-center justify-between">
           {/* BRAND LOGO WITH LIGHT ACCENT */}
-          <Link href="#" className="flex items-center gap-3 group relative">
-            <div className="relative flex items-center justify-center size-11 rounded-full bg-slate-100 border border-slate-200 group-hover:border-rose-500 transition-colors duration-300 overflow-hidden shadow-inner">
+          <Link
+            href="/"
+            className="flex items-center gap-3 group relative group"
+          >
+            <div className="relative flex items-center justify-center size-11 rounded-full bg-slate-100">
               <Image
                 src="/logo/logo.png"
                 alt="RIJIK Logo"
                 height={28}
                 width={28}
-                className="size-7 object-contain group-hover:scale-110 transition-transform duration-300"
+                className="size-7 object-contain scale-110 group-hover:scale-115 transition-transform duration-300 relative z-10"
               />
+              <div className="absolute top-0 bg-slate-100 size-full rounded-full border-3 border-t-rose-700 border-l-rose-700 border-slate-800 group-hover:rotate-90 duration-300" />
             </div>
           </Link>
 
@@ -105,11 +104,11 @@ export default function AgronNavbar() {
                   href={item.link}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className="relative px-4 py-2 text-[16px] font-semibold text-slate-700 cursor-pointer hover:text-rose-600 transition-colors duration-200"
+                  className={`relative px-4 py-2 text-[16px] font-semibold  cursor-pointer hover:text-rose-600 transition-colors duration-200 ${path == item.link ? "text-rose-600" : "text-slate-700"}`}
                 >
                   {/* Soft Rose Hover Pill Background */}
-                  {hoveredIndex === index && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-rose-50 to-rose-100/80 rounded-full border border-rose-200/80 transition-all duration-300" />
+                  {(hoveredIndex === index || path == item.link) && (
+                    <div className="absolute inset-0 bg-linear-to-r from-rose-50 to-rose-100/80 rounded-full border border-rose-200/80 transition-all duration-300" />
                   )}
 
                   <span className="relative z-10">{item.name}</span>
@@ -149,11 +148,10 @@ export default function AgronNavbar() {
             {navItems.map((item, index) => (
               <li key={index}>
                 <a
-                  href="#"
-                  className="flex items-center justify-between px-4 py-3 rounded-xl font-medium text-sm text-slate-700 hover:bg-rose-50 hover:text-rose-600 transition-colors"
+                  href={item.link}
+                  className={`flex items-center justify-between px-4 py-3 rounded-xl font-medium text-sm hover:bg-rose-50 hover:text-rose-600 transition-colors ${path == item.link ? "text-rose-600 bg-rose-50" : "text-slate-700"}`}
                 >
                   <span>{item.name}</span>
-                  {/* <ChevronDown className="w-4 h-4 text-slate-400" /> */}
                 </a>
               </li>
             ))}

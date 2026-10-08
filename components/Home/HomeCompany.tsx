@@ -35,7 +35,7 @@ export default function HomeCompany() {
   });
 
   return (
-    <section className="bg-slate-900 pt-34 -mt-34 border">
+    <section className="bg-slate-900">
       <div
         ref={containerRef}
         className="bg-[#fafafa] overflow-hidden relative w-full"
