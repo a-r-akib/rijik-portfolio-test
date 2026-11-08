@@ -118,7 +118,7 @@ export default function SocialWelfareSection() {
               {welfareSkillsData.map((item, index) => (
                 <div key={index} className="flex flex-col gap-2">
                   <div
-                    className={`flex justify-between items-center text-xs sm:text-sm font-extrabold tracking-wider ${index > 1 ? "text-slate-100" : "text-slate-800"}`}
+                    className={`flex justify-between items-center text-xs sm:text-sm font-extrabold tracking-wider ${index > 1 ? "text-slate-800" : "text-slate-800"}`}
                   >
                     <span>{item.title}</span>
                     <span className="text-rose-600 font-black text-base">
@@ -144,7 +144,7 @@ export default function SocialWelfareSection() {
           </motion.div>
         </div>
       </WebPageWrapper>
-      <div className="h-[250px] bg-slate-900" />
+      <div className="h-[250px] bg-white" />
     </section>
   );
 }

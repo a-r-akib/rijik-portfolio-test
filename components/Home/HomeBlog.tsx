@@ -53,7 +53,7 @@ const blogPosts = [
 
 export default function HomeBlog() {
   return (
-    <section className="py-24 bg-slate-900 text-slate-100 overflow-hidden">
+    <section className="py-24 bg-white text-slate-900 overflow-hidden">
       <WebPageWrapper>
         <div>
           <motion.div
@@ -64,19 +64,19 @@ export default function HomeBlog() {
             className="flex flex-col md:flex-row justify-between items-end mb-12"
           >
             <div>
-              <span className="text-xs sm:text-sm font-semibold text-rose-500 uppercase tracking-widest block mb-2">
-                • Career Insights
+              <span className="text-xs sm:text-sm font-semibold text-rose-600 uppercase tracking-widest block mb-2">
+                - Career Insights
               </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 leading-tight">
                 Latest Insights &<br /> <span className="text-rose-600">Career </span> Advice from Rijik
               </h2>
-              <p className="text-slate-400 max-w-lg">
+              <p className="text-slate-600 max-w-lg">
                 Explore expert tips, hiring trends, and actionable strategies
                 designed to help you land your dream role and build a thriving
                 career.
               </p>
             </div>
-            <button className="mt-6 md:mt-0 bg-linear-to-r from-red-600 via-rose-500 to-red-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg shadow-rose-950/40 cursor-pointer scale-3d hover:scale-110 duration-500">
+            <button className="mt-6 md:mt-0 bg-linear-to-r from-red-600 via-rose-500 to-red-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg shadow-rose-500/25 cursor-pointer scale-3d hover:scale-110 duration-500">
               Read All Articles
             </button>
           </motion.div>
@@ -94,27 +94,27 @@ export default function HomeBlog() {
                 variants={itemVariants}
                 className="group cursor-pointer"
               >
-                <div className="relative rounded-3xl overflow-hidden mb-6 h-64 shadow-xl border border-slate-800 bg-slate-900">
+                <div className="relative rounded-3xl overflow-hidden mb-6 h-64 shadow-xl shadow-slate-200/50 border border-slate-200 bg-slate-50">
                   <img
                     src={post.image}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-90"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     alt={post.title}
                   />
                   <div className="absolute bottom-4 left-4 flex gap-2">
-                    <span className="bg-slate-950/80 backdrop-blur-md text-slate-200 text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-800">
+                    <span className="bg-white/90 backdrop-blur-md text-slate-800 text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
                       {post.category}
                     </span>
-                    <span className="bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md shadow-rose-950/40">
+                    <span className="bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md shadow-rose-500/20">
                       {post.date}
                     </span>
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-100 mb-4 group-hover:text-rose-600 transition-colors line-clamp-2">
+                <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-rose-600 transition-colors line-clamp-2">
                   {post.title}
                 </h3>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-slate-300 hover:text-rose-600 transition-colors group/link"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-rose-600 transition-colors group/link"
                 >
                   Read Article
                   <div className="w-5 h-5 bg-rose-600 group-hover/link:bg-rose-500 rounded-full flex items-center justify-center text-white transition-colors shadow-sm">

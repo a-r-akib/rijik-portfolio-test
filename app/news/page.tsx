@@ -37,8 +37,7 @@ export default function News() {
         "Dedicated to social welfare and humanitarian aid, the Rijik Foundation continues to support underprivileged communities and drive positive social impact across Bangladesh...",
       dateNum: "04",
       dateMonth: "Jan",
-      image:
-        "/company/img/rf.jpg",
+      image: "/company/img/rf.jpg",
       category: "Charity & Welfare",
     },
     {
@@ -48,8 +47,7 @@ export default function News() {
         "From seamless accommodation arrangements to cultural integration guidance, Muhammad Trading offers dedicated support services for students transitioning to life in Japan...",
       dateNum: "28",
       dateMonth: "Dec",
-      image:
-        "/company/img/jejc.jpg",
+      image: "/company/img/jejc.jpg",
       category: "Student Support",
     },
     {
@@ -81,21 +79,21 @@ export default function News() {
 
   return (
     <div className="bg-[#fafafa] text-slate-900">
-      <section className="pt-40 pb-24 bg-slate-900 text-slate-100 font-sans">
+      <section className="pt-40 pb-24 bg-white text-slate-900 font-sans">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Text & Updates Info */}
           <div className="lg:col-span-5 relative">
-            <div className="text-xs sm:text-sm font-semibold text-rose-500 uppercase tracking-widest block mb-2">
+            <div className="text-xs sm:text-sm font-semibold text-rose-600 uppercase tracking-widest block mb-2">
               Latest News & Insights
             </div>
-            <h2 className="text-3xl md:text-5xl font-black mb-4 leading-tight text-white capitalize">
+            <h2 className="text-3xl md:text-5xl font-black mb-4 leading-tight text-slate-900 capitalize">
               Our News
             </h2>
-            <h3 className="text-slate-400 text-sm leading-relaxed">
+            <h3 className="text-slate-700 text-sm leading-relaxed font-medium">
               Rijik International Bridging Nations, Expanding Horizons, Sharing
               Success Stories.
             </h3>
-            <p className="text-slate-500 text-xs leading-relaxed">
+            <p className="text-slate-500 text-xs leading-relaxed mt-2">
               Stay updated with the latest announcements, scholarship intakes
               for Japan Education and Job Center (JEJC), automotive shipments,
               community welfare events by Rijik Foundation, and new branch
@@ -105,21 +103,21 @@ export default function News() {
 
           {/* Right Column: Dynamic Image Showcase Grid */}
           <div className="lg:col-span-7 grid grid-cols-3 gap-4">
-            <div className="rounded-2xl overflow-hidden h-[400px] shadow-xl border border-slate-800">
+            <div className="rounded-2xl overflow-hidden h-[400px] shadow-xl shadow-slate-200/50 border border-slate-200 bg-slate-50">
               <img
                 src="/img/student4.jpg"
                 alt="Student training and education"
                 className="w-full h-full object-cover hover:scale-105 transition duration-700"
               />
             </div>
-            <div className="rounded-2xl overflow-hidden h-[400px] mt-8 shadow-xl border border-slate-800">
+            <div className="rounded-2xl overflow-hidden h-[400px] mt-8 shadow-xl shadow-slate-200/50 border border-slate-200 bg-slate-50">
               <img
                 src="/company/img/gb.jpeg"
                 alt="Automotive trading and sales"
                 className="w-full h-full object-cover hover:scale-105 transition duration-700"
               />
             </div>
-            <div className="rounded-2xl overflow-hidden h-[400px] shadow-xl border border-slate-800">
+            <div className="rounded-2xl overflow-hidden h-[400px] shadow-xl shadow-slate-200/50 border border-slate-200 bg-slate-50">
               <img
                 src="/company/img/gs.jpg"
                 alt="Community welfare and foundation work"

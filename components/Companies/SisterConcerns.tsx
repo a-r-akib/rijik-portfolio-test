@@ -99,13 +99,13 @@ const sisterConcerns = [
 
 export default function SisterConcerns() {
   return (
-    <section className="py-24 bg-slate-900 text-white">
+    <section className="py-24 bg-white text-slate-900">
       <WebPageWrapper>
         <div className="text-center mb-20">
-          <span className="text-xs sm:text-sm font-semibold text-rose-500 uppercase tracking-widest block mb-2">
+          <span className="text-xs sm:text-sm font-semibold text-rose-600 uppercase tracking-widest block mb-2">
             Our Group of Companies
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-slate-900">
             Sister Concerns & Ventures
           </h2>
         </div>
@@ -114,7 +114,7 @@ export default function SisterConcerns() {
           {sisterConcerns.map((item, index) => (
             <div
               key={index}
-              className={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-center sticky top-10 p-2 bg-slate-900/60 backdrop-blur-md ${
+              className={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-center sticky top-10 p-6 bg-slate-50/90 backdrop-blur-md border border-slate-200 rounded-3xl shadow-lg shadow-slate-100 ${
                 index % 2 === 1 ? "lg:flex-row-reverse" : ""
               }`}
             >
@@ -122,24 +122,24 @@ export default function SisterConcerns() {
               <div
                 className={`lg:col-span-6 space-y-6 ${index % 2 === 1 ? "lg:order-2" : "lg:order-1"}`}
               >
-                <span className="text-rose-500 font-mono text-lg font-bold">
+                <span className="text-rose-600 font-mono text-lg font-bold">
                   {item.num}
                 </span>
-                <h3 className="text-3xl sm:text-4xl font-black text-white leading-tight">
+                <h3 className="text-3xl sm:text-4xl font-black text-slate-900 leading-tight">
                   {item.title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm leading-relaxed">
                   {item.desc}
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-white/10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-slate-200">
                   {item.links.map((link, i) => (
                     <a
                       key={i}
                       href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-rose-400 transition-colors"
+                      className="flex items-center gap-2 text-xs font-semibold text-slate-700 hover:text-rose-600 transition-colors"
                     >
-                      <ChevronRight className="w-3.5 h-3.5 text-rose-500 flex-shrink-0" />
+                      <ChevronRight className="w-3.5 h-3.5 text-rose-600 flex-shrink-0" />
                       <span>{link}</span>
                     </a>
                   ))}
@@ -148,10 +148,10 @@ export default function SisterConcerns() {
                 <div className="pt-4">
                   <a
                     href="#read"
-                    className="inline-flex items-center gap-2 text-xs uppercase font-bold tracking-widest text-white hover:text-rose-400 transition-colors group"
+                    className="inline-flex items-center gap-2 text-xs uppercase font-bold tracking-widest text-slate-900 hover:text-rose-600 transition-colors group"
                   >
                     <span>Read More</span>
-                    <ArrowRight className="w-4 h-4 text-rose-500 transform group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 text-rose-600 transform group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
               </div>
@@ -160,13 +160,13 @@ export default function SisterConcerns() {
               <div
                 className={`lg:col-span-6 ${index % 2 === 1 ? "lg:order-1" : "lg:order-2"}`}
               >
-                <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl h-[400px] relative group">
+                <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-xl h-[400px] relative group bg-slate-100">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter saturate-[90%] group-hover:saturate-100"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
                 </div>
               </div>
             </div>

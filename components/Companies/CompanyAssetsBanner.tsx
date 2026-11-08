@@ -79,11 +79,11 @@ export default function CompanyAssetsBanner() {
   const currentSlide = sliderData[currentIndex];
 
   return (
-    <section className="pt-24 bg-slate-900">
+    <section className="pt-24 bg-white">
       <WebPageWrapper>
-        <div className="rounded-3xl overflow-hidden shadow-2xl border border-white/10 relative group">
+        <div className="rounded-3xl overflow-hidden shadow-2xl border border-slate-200 relative group bg-slate-100">
           {/* Slider Images with Smooth Crossfade */}
-          <div className="relative w-full h-[450px] sm:h-[600px] overflow-hidden bg-black">
+          <div className="relative w-full h-[450px] sm:h-[600px] overflow-hidden bg-slate-200">
             {sliderData.map((slide, idx) => (
               <div
                 key={idx}
@@ -100,20 +100,20 @@ export default function CompanyAssetsBanner() {
             ))}
 
             {/* Gradient Overlay for Readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-20"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent z-20"></div>
 
             {/* Navigation Arrows */}
             <button
               onClick={handlePrev}
               aria-label="Previous slide"
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/50 hover:bg-rose-600 text-white backdrop-blur-md border border-white/10 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 shadow-lg cursor-pointer"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/80 hover:bg-rose-600 hover:text-white text-slate-900 backdrop-blur-md border border-slate-200 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 shadow-lg cursor-pointer"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={handleNext}
               aria-label="Next slide"
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/50 hover:bg-rose-600 text-white backdrop-blur-md border border-white/10 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 shadow-lg cursor-pointer"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/80 hover:bg-rose-600 hover:text-white text-slate-900 backdrop-blur-md border border-slate-200 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 shadow-lg cursor-pointer"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
@@ -128,7 +128,7 @@ export default function CompanyAssetsBanner() {
                   className={`h-2 transition-all rounded-full ${
                     idx === currentIndex
                       ? "w-8 bg-rose-500"
-                      : "w-2 bg-white/40 hover:bg-white"
+                      : "w-2 bg-white/50 hover:bg-white"
                   }`}
                 ></button>
               ))}
@@ -137,32 +137,32 @@ export default function CompanyAssetsBanner() {
             {/* Floating Info Content Overlay */}
             <div className="absolute bottom-8 left-8 right-8 sm:bottom-12 sm:left-12 sm:right-12 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 z-30">
               <div className="space-y-3 max-w-xl">
-                <span className="inline-block px-3 py-1 rounded-full bg-rose-500/20 backdrop-blur-md border border-rose-500/30 text-rose-400 text-xs font-mono uppercase tracking-widest animate-fadeIn">
+                <span className="inline-block px-3 py-1 rounded-full bg-rose-500/20 backdrop-blur-md border border-rose-500/30 text-rose-300 text-xs font-mono uppercase tracking-widest animate-fadeIn">
                   {currentSlide.badge}
                 </span>
                 <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight">
                   {currentSlide.title}
                 </h2>
-                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">
                   {currentSlide.description}
                 </p>
               </div>
 
               {/* Statistics Cards */}
               <div className="flex gap-4 flex-shrink-0">
-                <div className="bg-black/60 backdrop-blur-md border border-white/10 px-5 py-3 rounded-2xl text-center">
-                  <span className="block text-2xl sm:text-3xl font-bold text-rose-500">
+                <div className="bg-white/15 backdrop-blur-md border border-white/20 px-5 py-3 rounded-2xl text-center shadow-lg">
+                  <span className="block text-2xl sm:text-3xl font-bold text-rose-400">
                     {currentSlide.stat1Number}
                   </span>
-                  <span className="block text-[10px] uppercase font-mono text-slate-300 tracking-wider">
+                  <span className="block text-[10px] uppercase font-mono text-slate-200 tracking-wider">
                     {currentSlide.stat1Label}
                   </span>
                 </div>
-                <div className="bg-black/60 backdrop-blur-md border border-white/10 px-5 py-3 rounded-2xl text-center">
+                <div className="bg-white/15 backdrop-blur-md border border-white/20 px-5 py-3 rounded-2xl text-center shadow-lg">
                   <span className="block text-2xl sm:text-3xl font-bold text-white">
                     {currentSlide.stat2Number}
                   </span>
-                  <span className="block text-[10px] uppercase font-mono text-slate-300 tracking-wider">
+                  <span className="block text-[10px] uppercase font-mono text-slate-200 tracking-wider">
                     {currentSlide.stat2Label}
                   </span>
                 </div>

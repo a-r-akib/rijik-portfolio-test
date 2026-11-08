@@ -4,10 +4,10 @@ import { CheckCircle2, Globe2 } from 'lucide-react';
 
 export default function AboutVision() {
   return (
-    <section className="relative bg-slate-900 py-20 px-4 md:px-12 lg:px-20 overflow-hidden text-slate-100">
+    <section className="relative bg-white py-20 px-4 md:px-12 lg:px-20 overflow-hidden text-slate-900">
       {/* Background Watermark - Global Icon (bottom left) */}
       <div className="absolute bottom-4 left-4 opacity-5 pointer-events-none z-0">
-        <Globe2 className="w-96 h-96 text-rose-500" />
+        <Globe2 className="w-96 h-96 text-rose-600" />
       </div>
 
       <div className="max-w-7xl mx-auto space-y-24 relative z-10">
@@ -19,11 +19,11 @@ export default function AboutVision() {
               {/* Outer Decorative Rose Border Frame */}
               <div className="absolute inset-0 border-2 border-rose-500 translate-x-4 translate-y-4 pointer-events-none rounded-2xl"></div>
               {/* Inner Image Container */}
-              <div className="relative w-full h-full bg-slate-900 overflow-hidden z-10 rounded-xl">
+              <div className="relative w-full h-full bg-slate-100 overflow-hidden z-10 rounded-xl shadow-xl border border-slate-200">
                 <img
                   src="/img/student3.jpg"
                   alt="Global Vision and Collaboration"
-                  className="w-full h-full object-cover filter contrast-105 opacity-90 rounded-xl"
+                  className="w-full h-full object-cover filter contrast-105 rounded-xl"
                 />
               </div>
             </div>
@@ -32,16 +32,16 @@ export default function AboutVision() {
           {/* Right: Vision Text & Features */}
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-block relative mb-1">
-              <span className="text-rose-500 font-semibold tracking-wider text-xs uppercase">
+              <span className="text-rose-600 font-semibold tracking-wider text-xs uppercase">
                 Our Vision
               </span>
             </div>
 
-            <h2 className="text-3xl md:text-4xl lg:text-[40px] font-extrabold leading-tight text-white">
+            <h2 className="text-3xl md:text-4xl lg:text-[40px] font-extrabold leading-tight text-slate-900">
               Connecting People & <br />
               Empowering Global Futures
             </h2>
-            <div className="space-y-4 text-sm md:text-base text-slate-300 leading-relaxed">
+            <div className="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed">
               <p>
                 At Rijik International, our vision is to be a premier global platform dedicated to supporting individuals and businesses in their cross-border journey. We bridge opportunities across continents with integrity and dedication.
               </p>
@@ -54,30 +54,30 @@ export default function AboutVision() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-rose-600 flex-shrink-0" />
-                <span className="text-sm font-medium text-slate-200">Global Opportunities</span>
+                <span className="text-sm font-medium text-slate-800">Global Opportunities</span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-rose-600 flex-shrink-0" />
-                <span className="text-sm font-medium text-slate-200">Trusted Guidance</span>
+                <span className="text-sm font-medium text-slate-800">Trusted Guidance</span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-rose-600 flex-shrink-0" />
-                <span className="text-sm font-medium text-slate-200">Cross-Border Reach</span>
+                <span className="text-sm font-medium text-slate-800">Cross-Border Reach</span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-rose-600 flex-shrink-0" />
-                <span className="text-sm font-medium text-slate-200">Empowered Futures</span>
+                <span className="text-sm font-medium text-slate-800">Empowered Futures</span>
               </div>
             </div>
 
             {/* Signature & Leadership info */}
-            <div className="pt-6 border-t border-slate-800 flex flex-col gap-2">
-              <div className="font-['Brush_Script_MT',cursive] text-3xl text-rose-500 tracking-wide">
+            <div className="pt-6 border-t border-slate-200 flex flex-col gap-2">
+              <div className="font-['Brush_Script_MT',cursive] text-3xl text-rose-600 tracking-wide">
                 Rijik Team
               </div>
               <div>
-                <h4 className="font-bold text-sm tracking-wider text-white">Rijik International</h4>
-                <p className="text-xs text-slate-400 uppercase tracking-wider">Global Platform & Services</p>
+                <h4 className="font-bold text-sm tracking-wider text-slate-900">Rijik International</h4>
+                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Global Platform & Services</p>
               </div>
             </div>
           </div>
@@ -88,16 +88,16 @@ export default function AboutVision() {
           {/* Left: Mission Text, Features, and Button */}
           <div className="lg:col-span-6 space-y-6 order-2 lg:order-1">
             <div className="inline-block relative mb-1">
-              <span className="text-rose-500 font-semibold tracking-wider text-xs uppercase">
+              <span className="text-rose-600 font-semibold tracking-wider text-xs uppercase">
                 Our Mission
               </span>
             </div>
 
-            <h2 className="text-3xl md:text-4xl lg:text-[40px] font-extrabold leading-tight text-white">
+            <h2 className="text-3xl md:text-4xl lg:text-[40px] font-extrabold leading-tight text-slate-900">
               Delivering Excellence in <br />
               Education, Employment & Finance
             </h2>
-            <p className="text-sm md:text-base text-slate-300 leading-relaxed">
+            <p className="text-sm md:text-base text-slate-600 leading-relaxed">
               Our mission is to equip clients with comprehensive cross-border solutions. Through reliable education pathways, employment support, and streamlined financial services, we ensure every journey is met with confidence and success.
             </p>
 
@@ -105,25 +105,25 @@ export default function AboutVision() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-rose-600 flex-shrink-0" />
-                <span className="text-sm font-medium text-slate-200">Education Support</span>
+                <span className="text-sm font-medium text-slate-800">Education Support</span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-rose-600 flex-shrink-0" />
-                <span className="text-sm font-medium text-slate-200">Employment Services</span>
+                <span className="text-sm font-medium text-slate-800">Employment Services</span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-rose-600 flex-shrink-0" />
-                <span className="text-sm font-medium text-slate-200">Financial Solutions</span>
+                <span className="text-sm font-medium text-slate-800">Financial Solutions</span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-rose-600 flex-shrink-0" />
-                <span className="text-sm font-medium text-slate-200">Reliable Guidance</span>
+                <span className="text-sm font-medium text-slate-800">Reliable Guidance</span>
               </div>
             </div>
 
             {/* Learn More Button */}
             <div className="pt-4">
-              <button className="bg-linear-to-r from-red-600 via-rose-500 to-red-600 text-white text-sm font-semibold tracking-wide uppercase px-8 py-3.5 rounded-xl shadow-lg shadow-rose-600/20 transition-all duration-300 cursor-pointer hover:scale-110 scale-3d duration-300">
+              <button className="bg-linear-to-r from-red-600 via-rose-500 to-red-600 text-white text-sm font-semibold tracking-wide uppercase px-8 py-3.5 rounded-xl shadow-lg shadow-rose-500/25 transition-all duration-300 cursor-pointer hover:scale-110">
                 Learn More
               </button>
             </div>
@@ -135,11 +135,11 @@ export default function AboutVision() {
               {/* Outer Decorative Rose Border Frame (offset left/top) */}
               <div className="absolute inset-0 border-2 border-rose-500 -translate-x-4 -translate-y-4 pointer-events-none rounded-2xl"></div>
               {/* Inner Image Container */}
-              <div className="relative w-full h-full bg-slate-900 overflow-hidden z-10 rounded-xl">
+              <div className="relative w-full h-full bg-slate-100 overflow-hidden z-10 rounded-xl shadow-xl border border-slate-200">
                 <img
                   src="/img/student.jpg"
                   alt="Our Mission in Action"
-                  className="w-full h-full object-cover filter contrast-105 opacity-90"
+                  className="w-full h-full object-cover filter contrast-105 rounded-xl"
                 />
               </div>
             </div>

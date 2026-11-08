@@ -128,31 +128,34 @@ export default function HomeReview() {
                       key={item.id}
                       className="flex-[0_0_100%] md:flex-[0_0_50%] pl-6 min-w-0"
                     >
-                      <div className="bg-slate-800 p-8 rounded-3xl border border-slate-200 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:border-slate-300 transition-all duration-300 relative flex flex-col justify-between h-full">
+                      <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-lg shadow-slate-100 hover:shadow-xl hover:border-slate-300 transition-all duration-300 relative flex flex-col justify-between h-full">
                         {/* Floating Quote Badge */}
                         <div className="absolute top-4 right-6 bg-rose-50 text-rose-500 w-10 h-10 rounded-2xl flex items-center justify-center border border-rose-100 shadow-sm shrink-0">
-                          <Quote size={20} className="fill-rose-500 text-rose-500" />
+                          <Quote
+                            size={20}
+                            className="fill-rose-500 text-rose-500"
+                          />
                         </div>
 
                         <div>
                           {/* Rating Stars */}
-                          <div className="flex items-center gap-1 text-amber-400 mb-6">
+                          <div className="flex items-center gap-1 text-amber-500 mb-6">
                             {[...Array(item.rating)].map((_, i) => (
                               <Star
                                 key={i}
                                 size={16}
-                                className="fill-amber-400"
+                                className="fill-amber-500 text-amber-500"
                               />
                             ))}
                           </div>
 
-                          <p className="text-slate-100 text-sm leading-relaxed mb-8">
+                          <p className="text-slate-700 text-sm leading-relaxed mb-8">
                             "{item.review}"
                           </p>
                         </div>
 
                         <div>
-                          <h4 className="font-extrabold text-slate-50 text-base">
+                          <h4 className="font-extrabold text-slate-900 text-base">
                             {item.name}
                           </h4>
                           <p className="text-xs text-rose-600 font-semibold mt-0.5">

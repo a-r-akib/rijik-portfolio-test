@@ -37,7 +37,7 @@ const scaleIn = {
 
 export default function HomeAbout() {
   return (
-    <section className="py-24 relative bg-slate-900 text-white overflow-hidden">
+    <section className="py-24 relative bg-white text-slate-900 overflow-hidden">
       <WebPageWrapper>
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           <motion.div
@@ -49,7 +49,7 @@ export default function HomeAbout() {
           >
             <motion.div
               variants={scaleIn}
-              className="relative mb-12 rounded-[2rem] overflow-hidden h-[400px]"
+              className="relative mb-12 rounded-[2rem] overflow-hidden h-[400px] shadow-lg"
             >
               <Image
                 src="/img/student.jpg"
@@ -75,7 +75,7 @@ export default function HomeAbout() {
 
             <motion.p
               variants={fadeInUp}
-              className="text-slate-300 mb-8 text-base sm:text-lg leading-relaxed max-w-lg"
+              className="text-slate-600 mb-8 text-base sm:text-lg leading-relaxed max-w-lg"
             >
               Rijik International connects people and opportunities across
               borders by offering trusted support at every stage of the journey.
@@ -85,7 +85,7 @@ export default function HomeAbout() {
 
             <motion.button
               variants={fadeInUp}
-              className="bg-linear-to-r from-red-600 via-rose-500 to-red-600 text-white px-6 py-3.5 rounded-full font-semibold flex items-center gap-3 transition-transform hover:scale-105 active:scale-95 group shadow-lg shadow-rose-950/40 cursor-pointer"
+              className="bg-linear-to-r from-red-600 via-rose-500 to-red-600 text-white px-6 py-3.5 rounded-full font-semibold flex items-center gap-3 transition-transform hover:scale-105 active:scale-95 group shadow-lg shadow-rose-500/25 cursor-pointer"
             >
               <span>Know About Us</span>
               <span className="w-8 h-8 rounded-full text-slate-900 bg-white flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
@@ -103,14 +103,14 @@ export default function HomeAbout() {
           >
             <motion.span
               variants={fadeInUp}
-              className="text-xs sm:text-sm font-semibold text-rose-500 uppercase tracking-widest block mb-2"
+              className="text-xs sm:text-sm font-semibold text-rose-600 uppercase tracking-widest block mb-2"
             >
-              • About Us •
+              - About Us •
             </motion.span>
 
             <motion.h2
               variants={fadeInUp}
-              className="text-3xl md:text-5xl font-extrabold mb-8 leading-tight text-white"
+              className="text-3xl md:text-5xl font-extrabold mb-8 leading-tight text-slate-900"
             >
               Connecting People & Opportunities Across Borders
             </motion.h2>
@@ -119,28 +119,28 @@ export default function HomeAbout() {
               variants={fadeInUp}
               className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8"
             >
-              <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700/80 hover:border-rose-500/50 transition-colors">
-                <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center shadow-inner mb-4">
-                  <Goal className="text-rose-500" size={20} />
+              <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-rose-500/50 transition-colors shadow-sm">
+                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm mb-4 border border-slate-100">
+                  <Goal className="text-rose-600" size={20} />
                 </div>
-                <h3 className="font-bold text-lg mb-2 text-white">
+                <h3 className="font-bold text-lg mb-2 text-slate-900">
                   Student Guidance
                 </h3>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                   For students in Japan, we provide hands-on guidance, cultural
                   orientation, and continuous assistance so they can adapt
                   smoothly and focus on growth.
                 </p>
               </div>
 
-              <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700/80 hover:border-rose-500/50 transition-colors">
-                <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center shadow-inner mb-4">
-                  <Waypoints className="text-rose-500" size={20} />
+              <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-rose-500/50 transition-colors shadow-sm">
+                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm mb-4 border border-slate-100">
+                  <Waypoints className="text-rose-600" size={20} />
                 </div>
-                <h3 className="font-bold text-lg mb-2 text-white">
+                <h3 className="font-bold text-lg mb-2 text-slate-900">
                   Global Transfers
                 </h3>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                   Beyond education and employment, we make global money
                   transfers easier and reliable, helping individuals stay
                   connected with their families and goals.
@@ -149,40 +149,42 @@ export default function HomeAbout() {
             </motion.div>
 
             <motion.div variants={fadeInUp} className="flex gap-4 h-40">
-              <div className="w-1/3 bg-slate-800 rounded-2xl border border-slate-700/80 p-5 text-white flex flex-col justify-center">
+              <div className="w-1/3 bg-slate-50 rounded-2xl border border-slate-200 p-5 text-slate-900 flex flex-col justify-center shadow-sm">
                 <div className="flex -space-x-2 mb-3">
                   <Image
-                    className="size-8 rounded-full border-2 border-slate-800 object-cover"
+                    className="size-8 rounded-full border-2 border-white object-cover"
                     src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop"
                     width={32}
                     height={32}
                     alt="User"
                   />
                   <Image
-                    className="size-8 rounded-full border-2 border-slate-800 object-cover"
+                    className="size-8 rounded-full border-2 border-white object-cover"
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
                     width={32}
                     height={32}
                     alt="User"
                   />
-                  <div className="size-8 rounded-full border-2 border-slate-800 bg-slate-700 flex items-center justify-center text-[10px] font-bold text-rose-400">
+                  <div className="size-8 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center text-[10px] font-bold text-rose-600">
                     +
                   </div>
                 </div>
-                <div className="text-2xl font-black mb-0.5 text-white">5K+</div>
-                <div className="text-[11px] text-slate-400 leading-tight">
+                <div className="text-2xl font-black mb-0.5 text-slate-900">
+                  5K+
+                </div>
+                <div className="text-[11px] text-slate-500 leading-tight">
                   Empowered globally across borders.
                 </div>
               </div>
 
-              <div className="w-2/3 rounded-2xl overflow-hidden relative border border-slate-700/80">
+              <div className="w-2/3 rounded-2xl overflow-hidden relative border border-slate-200 shadow-sm">
                 <Image
                   src="/img/student.jpg"
                   fill
                   className="object-cover"
                   alt="Students and professionals"
                 />
-                <div className="absolute inset-0 bg-slate-950/30" />
+                <div className="absolute inset-0 bg-slate-900/10" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative flex items-center justify-center">
                     <div className="absolute w-16 h-16 bg-rose-500/40 rounded-full animate-ping pointer-events-none" />

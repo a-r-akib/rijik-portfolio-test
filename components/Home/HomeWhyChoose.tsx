@@ -36,19 +36,19 @@ export default function HomeWhyChoose() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 bg-slate-900 text-slate-100 relative overflow-hidden"
+      className="py-24 bg-white text-slate-900 relative overflow-hidden"
     >
       <div className="absolute inset-0 flex flex-col justify-center pointer-events-none select-none z-0 overflow-hidden whitespace-nowrap opacity-30">
         <motion.div
           style={{ x: moveLeftToRight }}
-          className="text-[10vw] font-black uppercase text-slate-700 tracking-tighter leading-none"
+          className="text-[10vw] font-black uppercase text-slate-200 tracking-tighter leading-none"
         >
           WHY CHOOSE • WHY CHOOSE • WHY CHOOSE • WHY CHOOSE
         </motion.div>
 
         <motion.div
           style={{ x: moveRightToLeft }}
-          className="text-[10vw] font-black uppercase text-slate-800 tracking-tighter leading-none -mt-2 sm:-mt-6"
+          className="text-[10vw] font-black uppercase text-slate-100 tracking-tighter leading-none -mt-2 sm:-mt-6"
         >
           RIJIK INTERNATIONAL • RIJIK INTERNATIONAL
         </motion.div>
@@ -58,17 +58,17 @@ export default function HomeWhyChoose() {
         <div className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div style={{ y: contentY, opacity }}>
-              <span className="text-xs sm:text-sm font-semibold text-rose-500 uppercase tracking-widest block mb-2">
-                • WHY CHOOSE RIJIK INTERNATIONAL •
+              <span className="text-xs sm:text-sm font-semibold text-rose-600 uppercase tracking-widest block mb-2">
+                - WHY CHOOSE RIJIK INTERNATIONAL •
               </span>
 
-              <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-6">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-6">
                 Your Trusted Gateway to <br />
                 <span className="text-rose-600">Japan</span> Education & Career
                 Success
               </h2>
 
-              <p className="text-slate-400 mb-8 leading-relaxed text-sm sm:text-base">
+              <p className="text-slate-600 mb-8 leading-relaxed text-sm sm:text-base">
                 Rijik International is an authorized consultancy agency
                 specializing in Higher Education, Japanese Language Training,
                 Skill Development, and Global Career Placements. We empower
@@ -77,12 +77,12 @@ export default function HomeWhyChoose() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 mb-10 items-center sm:items-start">
-                <div className="relative w-full sm:w-48 h-36 rounded-2xl overflow-hidden shadow-lg shrink-0 border border-slate-800 bg-slate-900">
+                <div className="relative w-full sm:w-48 h-36 rounded-2xl overflow-hidden shadow-md shrink-0 border border-slate-200 bg-slate-50">
                   <Image
                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=400&auto=format&fit=crop"
                     alt="Students and Counsellor"
                     fill
-                    className="object-cover brightness-90"
+                    className="object-cover"
                   />
                 </div>
                 <div className="space-y-3.5 w-full">
@@ -91,7 +91,7 @@ export default function HomeWhyChoose() {
                       className="text-rose-600 shrink-0"
                       size={20}
                     />
-                    <span className="font-bold text-slate-200 text-sm">
+                    <span className="font-bold text-slate-800 text-sm">
                       Authorized Visa & Documentation Support
                     </span>
                   </div>
@@ -100,7 +100,7 @@ export default function HomeWhyChoose() {
                       className="text-rose-600 shrink-0"
                       size={20}
                     />
-                    <span className="font-bold text-slate-200 text-sm">
+                    <span className="font-bold text-slate-800 text-sm">
                       Certified Japanese Language Training (NAT / JLPT)
                     </span>
                   </div>
@@ -109,7 +109,7 @@ export default function HomeWhyChoose() {
                       className="text-rose-600 shrink-0"
                       size={20}
                     />
-                    <span className="font-bold text-slate-200 text-sm">
+                    <span className="font-bold text-slate-800 text-sm">
                       Direct Career & Job Placement Assistance
                     </span>
                   </div>
@@ -118,7 +118,7 @@ export default function HomeWhyChoose() {
                       className="text-rose-600 shrink-0"
                       size={20}
                     />
-                    <span className="font-bold text-slate-200 text-sm">
+                    <span className="font-bold text-slate-800 text-sm">
                       Transparent & End-to-End Career Guidance
                     </span>
                   </div>
@@ -130,7 +130,7 @@ export default function HomeWhyChoose() {
                   href="https://rijikint.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-linear-to-r from-red-600 via-rose-500 to-red-600 text-white font-bold py-3.5 px-8 rounded-full text-sm shadow-lg shadow-rose-950/50 scale-3d hover:scale-110 duration-500"
+                  className="bg-linear-to-r from-red-600 via-rose-500 to-red-600 text-white font-bold py-3.5 px-8 rounded-full text-sm shadow-lg shadow-rose-500/25 scale-3d hover:scale-110 duration-500 cursor-pointer"
                 >
                   Explore Services
                 </Link>
@@ -138,21 +138,21 @@ export default function HomeWhyChoose() {
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-3">
                     <Image
-                      className="w-10 h-10 rounded-full border-2 border-slate-900 object-cover shadow-sm"
+                      className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm"
                       src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop"
                       width={40}
                       height={40}
                       alt="Student avatar"
                     />
                     <Image
-                      className="w-10 h-10 rounded-full border-2 border-slate-900 object-cover shadow-sm"
+                      className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm"
                       src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
                       width={40}
                       height={40}
                       alt="Student avatar"
                     />
                     <Image
-                      className="w-10 h-10 rounded-full border-2 border-slate-900 object-cover shadow-sm"
+                      className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm"
                       src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=100&auto=format&fit=crop"
                       width={40}
                       height={40}
@@ -160,14 +160,14 @@ export default function HomeWhyChoose() {
                     />
                   </div>
                   <div>
-                    <div className="flex items-center gap-0.5 text-amber-400">
-                      <Star size={14} className="fill-amber-400" />
-                      <Star size={14} className="fill-amber-400" />
-                      <Star size={14} className="fill-amber-400" />
-                      <Star size={14} className="fill-amber-400" />
-                      <Star size={14} className="fill-amber-400" />
+                    <div className="flex items-center gap-0.5 text-amber-500">
+                      <Star size={14} className="fill-amber-500 text-amber-500" />
+                      <Star size={14} className="fill-amber-500 text-amber-500" />
+                      <Star size={14} className="fill-amber-500 text-amber-500" />
+                      <Star size={14} className="fill-amber-500 text-amber-500" />
+                      <Star size={14} className="fill-amber-500 text-amber-500" />
                     </div>
-                    <div className="text-xs text-slate-400 font-bold mt-0.5">
+                    <div className="text-xs text-slate-500 font-bold mt-0.5">
                       4.9 / 5 Client Satisfaction
                     </div>
                   </div>
@@ -176,26 +176,26 @@ export default function HomeWhyChoose() {
             </motion.div>
 
             <motion.div style={{ y: imageY, opacity }} className="relative">
-              <div className="absolute inset-0 bg-slate-800/40 rounded-[3rem] transform translate-x-4 translate-y-4 -z-10 border border-rose-900/30" />
+              <div className="absolute inset-0 bg-slate-100 rounded-[3rem] transform translate-x-4 translate-y-4 -z-10 border border-rose-100" />
 
-              <div className="relative rounded-[3rem] overflow-hidden h-[550px] lg:h-[600px] shadow-2xl border border-slate-800 group bg-slate-900">
+              <div className="relative rounded-[3rem] overflow-hidden h-[550px] lg:h-[600px] shadow-xl border border-slate-200 group bg-slate-50">
                 <Image
                   src="/img/about.jpg"
                   alt="Rijik International Student Success"
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-90"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-950/10 to-transparent" />
 
-                <div className="absolute bottom-8 left-8 right-8 bg-slate-900/90 backdrop-blur-md p-5 rounded-2xl border border-slate-800 shadow-2xl flex items-center gap-4">
-                  <div className="w-12 h-12 bg-linear-to-r from-red-600 via-rose-500 to-red-600 text-white rounded-xl flex items-center justify-center shrink-0 shadow-md shadow-rose-950/40">
+                <div className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-md p-5 rounded-2xl border border-slate-200 shadow-xl flex items-center gap-4">
+                  <div className="w-12 h-12 bg-linear-to-r from-red-600 via-rose-500 to-red-600 text-white rounded-xl flex items-center justify-center shrink-0 shadow-md shadow-rose-500/20">
                     <Sparkles size={24} />
                   </div>
                   <div>
-                    <h4 className="font-extrabold text-white text-sm">
+                    <h4 className="font-extrabold text-slate-900 text-sm">
                       Empowering Global Dreams
                     </h4>
-                    <p className="text-slate-400 text-xs mt-0.5">
+                    <p className="text-slate-500 text-xs mt-0.5">
                       Direct partnership & support for Japan migration pathways.
                     </p>
                   </div>
